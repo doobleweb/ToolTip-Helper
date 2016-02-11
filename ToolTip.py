@@ -17,7 +17,7 @@ class ToolTipCommand(sublime_plugin.TextCommand):
     SCOPE_NAME = "source.python"
 
     def run(self, edit):
-        print(sublime.packages_path())
+        print(int(sublime.version()))
         # only python files could run this plugin
         if self.SCOPE_NAME in self.view.scope_name(0) and \
             int(sublime.version()) >= 3080:
@@ -41,7 +41,10 @@ class ToolTipCommand(sublime_plugin.TextCommand):
 
     def match_selection(self, sel):
         # set regex to API subline functions
-        sublime_regex = r".*\w+\.(\w+)\(.*\).*"
+        sublime_regex = r"^.*\w+\.(\w*)\(\w*\)$"
+        regex = r".*\w+\.\w+\(\)(\.\w+\(\))+"
+
+        search_result = "no function"
 
         try:
             # do match with the selected exp
@@ -53,6 +56,42 @@ class ToolTipCommand(sublime_plugin.TextCommand):
                 json = self.search_function(search_result.strip())
                 # add the description & parameters to one string unit
                 search_result = Utilities.result_format(json)
+            elif re.match(regex, sel):
+                # get the current cursor point
+                sel = self.view.sel()[0].begin()
+                # get the line with current cursor
+                get_line = self.view.line(sel)
+                # get the start position of line
+                line_start = get_line.begin()
+                # get the end position of line
+                line_end = get_line.end()
+
+                # search untill you see point or edge for both directions
+                view = sublime.active_window().active_view()
+                # loop till the and of row
+                for i in range(sel, line_end+1):
+                    b = i
+                    if i == line_end+1 or \
+                       view.substr(i) == '.':
+                        break
+                # loop down till the start of row
+                for i in range(sel-1, line_start-1, -1):
+                    a = i+1
+                    if i == line_start or \
+                       view.substr(i) == '.':
+                        break
+
+                # get the selection in string 
+                word = view.substr(sublime.Region(a, b))
+                # find function in pattern of 'function_name()'
+                fun_regex = r"^(\w*)\(\w*\)$"
+
+                if re.match(fun_regex, word):
+                    search_result = re.match(fun_regex, word).group(1)
+                    json = self.search_function(search_result)
+                    # add the description & parameters to one string unit
+                    search_result = Utilities.result_format(json)
+                    # search the word in json file ant return the result
             else:
                 search_result = "there is no match"
         except:

@@ -1,0 +1,5 @@
+[
+    {
+        "keys": ["ctrl+9"], "command": "tool_tip", "args": {}
+    }
+]

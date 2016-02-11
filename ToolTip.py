@@ -19,7 +19,8 @@ class ToolTipCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         print(sublime.packages_path())
         # only python files could run this plugin
-        if self.SCOPE_NAME in self.view.scope_name(0):
+        if self.SCOPE_NAME in self.view.scope_name(0) and \
+            int(sublime.version()) >= 3080:
             # get user selection
             sel = self.user_selection()
             # do match with user selection and return the result

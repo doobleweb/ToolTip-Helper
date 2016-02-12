@@ -1,4 +1,4 @@
-import sublime, sublime_plugin, re , json
+import sublime, sublime_plugin, re, json
 
 
 
@@ -17,7 +17,6 @@ class ToolTipCommand(sublime_plugin.TextCommand):
     SCOPE_NAME = "source.python"
 
     def run(self, edit):
-        print(int(sublime.version()))
         # only python files could run this plugin
         if self.SCOPE_NAME in self.view.scope_name(0) and \
             int(sublime.version()) >= 3080:
@@ -36,13 +35,13 @@ class ToolTipCommand(sublime_plugin.TextCommand):
         sel = self.view.sel()[0].begin()
         # get the line with current cursor
         get_line = self.view.line(sel)
-        print("Line content: " + self.view.substr(get_line).strip())
+        # print("Line content: " + self.view.substr(get_line).strip())
         return self.view.substr(get_line).strip()
 
     def match_selection(self, sel):
         # set regex to API subline functions
         sublime_regex = r"^.*\w+\.(\w*)\(\w*\)$"
-        regex = r".*\w+\.\w+\(\)(\.\w+\(\))+"
+        regex = r".*\w+\.\w+\(\w*\)(\[[0-9]\])*(\.\w+\(\w*\))+"
 
         search_result = "no function"
 
@@ -83,8 +82,9 @@ class ToolTipCommand(sublime_plugin.TextCommand):
 
                 # get the selection in string 
                 word = view.substr(sublime.Region(a, b))
+                # print(word)
                 # find function in pattern of 'function_name()'
-                fun_regex = r"^(\w*)\(\w*\)$"
+                fun_regex = r"^(\w*)\(\w*\)(\[[0-9]\])*\)*$"
 
                 if re.match(fun_regex, word):
                     search_result = re.match(fun_regex, word).group(1)

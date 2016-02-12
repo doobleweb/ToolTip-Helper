@@ -5,3 +5,9 @@ This plugin show tooltip for sublime API functions
 
 The plugin works with <code>ctrl+9</code> based on the cursor in the view.
 
+
+Future Goals:
+<ul> 
+  <li> Auto-complete for API functions.
+  <li> Get tooltip on your functions documentation.
+</ul>

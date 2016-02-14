@@ -1,9 +1,0 @@
-{ 
-        "scopes" : "source.py",
-		
-        "completions":
-
-        [
-                { "trigger": "\\substr\tSublime API", "contents": "substr(${1:var})"}
-        ]
-}

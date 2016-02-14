@@ -1,5 +1,8 @@
 {
-    "set_timeout": {
+    "regex":["^.*\\w+\\.(\\w*)\\((\\w*\\s*\\,*\\s*)*\\)$", ".*\\w+\\.\\w+\\(\\w*\\)(\\[[0-9]\\])*(\\.\\w+\\(\\w*\\))+"],
+    "scope": "source.python",
+    "methods": {
+    	"set_timeout": {
     		"method":"set_timeout(callback, delay)",
     		"description":"Runs the callback in the main thread after the given delay (in milliseconds). Callbacks with an equal delay will be run in the order they were added.",
     		"return":"None"
@@ -25,17 +28,17 @@
     		"return":"None"
     		},
     "ok_cancel_dialog": {
-    		"method":"ok_cancel_dialog(string, <ok_title>)",
+    		"method":"ok_cancel_dialog(string, ok_title)",
     		"description":"Displays an ok / cancel question dialog to the user. If ok_title is provided, this may be used as the text on the ok button. Returns True if the user presses the ok button.",
     		"return":"bool"
     		},
     "ok_cancel_dialog": {
-    		"method":"ok_cancel_dialog(string, <ok_title>)",
+    		"method":"ok_cancel_dialog(string, ok_title)",
     		"description":"Displays an ok / cancel question dialog to the user. If ok_title is provided, this may be used as the text on the ok button. Returns True if the user presses the ok button.", 
     		"return":"bool"
     		},
     "yes_no_cancel_dialog": {
-    		"method":"yes_no_cancel_dialog(string, <yes_title>, <no_title>)",
+    		"method":"yes_no_cancel_dialog(string, yes_title, no_title)",
     		"description":"Displays a yes / no / cancel question dialog to the user. If yes_title and/or no_title are provided, they will be used as the text on the corresponding buttons on some platforms. Returns sublime.DIALOG_YES, sublime.DIALOG_NO or sublime.DIALOG_CANCEL.",
     		"return":"Int"
     		},
@@ -55,7 +58,7 @@
     		"return":"[String]"
     		},
     "encode_value": {
-    		"method":"encode_value(value, <pretty>)",
+    		"method":"encode_value(value, pretty)",
     		"description":"Encode a JSON compatible value into a string representation. If pretty is set to True, the string will include newlines and indentation.",
     		"return":"String"
     		},
@@ -105,7 +108,7 @@
     		"return":"String"
     		},
     "get_clipboard": {
-    		"method":"get_clipboard(<size_limit>)",
+    		"method":"get_clipboard(size_limit)",
     		"description":"Returns the contents of the clipboard. size_limit is there to protect against unnecessarily large data, defaults to 16,777,216 characters",
     		"return":"String"
     		},
@@ -120,7 +123,7 @@
     		"return":"Int"
     		},
     "run_command": {
-    		"method":"run_command(string, <args>)",
+    		"method":"run_command(string, args)",
     		"description":"Runs the named ApplicationCommand with the (optional) given arguments.", 
     		"return":"None"
     		},
@@ -349,7 +352,7 @@
 			{
 				"method":"set_syntax_file(syntax_file)",
 				"return":"None",
-				"description":"Changes the syntax used by the view. <tt>syntax_file</tt> should be a name along the lines of <tt>Packages/Python/Python.tmLanguage</tt>. To retrieve the current syntax, use <tt>view.settings().get('syntax').</tt>"
+				"description":"Changes the syntax used by the view. ttsyntax_file/tt should be a name along the lines of ttPackages/Python/Python.tmLanguage/tt. To retrieve the current syntax, use ttview.settings().get('syntax')./tt"
 			},
 			"extract_scope":
 			{
@@ -486,7 +489,7 @@
 			{
 				"method":"command_history(index, modifying_only)",
 				"return":"(String,Dict,int)",
-				"description":"Returns the command name, command arguments, and repeat count for the given history entry, as stored in the undo / redo stack.\n\n<p>Index 0 corresponds to the most recent command, -1 the command before that, and so on. Positive values for index indicate to look in the redo stack for commands. If the undo / redo history doesn't extend far enough, then (None, None, 0) will be returned.\n\n</p><p>Setting modifying_only to True (the default is False) will only return entries that modified the buffer.</p>"
+				"description":"Returns the command name, command arguments, and repeat count for the given history entry, as stored in the undo / redo stack.\n\npIndex 0 corresponds to the most recent command, -1 the command before that, and so on. Positive values for index indicate to look in the redo stack for commands. If the undo / redo history doesn't extend far enough, then (None, None, 0) will be returned.\n\n/ppSetting modifying_only to True (the default is False) will only return entries that modified the buffer./p"
 			},
 			"change_count":
 			{
@@ -552,7 +555,7 @@
 			{
 				"method":"show_popup_menu(items, on_done, flags)",
 				"return":"None",
-				"description":"Shows a pop up menu at the caret, to select an item in a list. on_done will be called once, with the index of the selected item. If the pop up menu was cancelled, on_done will be called with an argument of -1.\n\n<p>Items is an array of strings.</p>\n\n<p>Flags currently only has no option.</p>\n"
+				"description":"Shows a pop up menu at the caret, to select an item in a list. on_done will be called once, with the index of the selected item. If the pop up menu was cancelled, on_done will be called with an argument of -1.\n\npItems is an array of strings./p\n\npFlags currently only has no option./p\n"
 			},
 			"classify":
 			{
@@ -562,202 +565,203 @@
 			},
 			"add_regions":
 			{
-				"method":"add_regions(key, [regions], <scope>, <icon>, <flags>)",
+				"method":"add_regions(key, [regions], scope, icon, flags)",
 				"return":"[(Region, String)]",
 				"description":"Add a set of regions to the view. If a set of regions already exists with the given key, they will be overwritten. The scope is used to source a color to draw the regions in, it should be the name of a scope, such as \"comment\" or \"string\". If the scope is empty, the regions won't be drawn.The optional icon name, if given, will draw the named icons in the gutter next to each region. The icon will be tinted using the color associated with the scope. Valid icon names are dot, circle, bookmark and cross. The icon name may also be a full package relative path, such as Packages/Theme - Default/dot.png."
 			},
 			"id":
 			{
-				"Methods":"id()",
-				"Return Value":"int",
-				"Description":"Returns a number that uniquely identifies this window."
+				"method":"id()",
+				"return":"int",
+				"description":"Returns a number that uniquely identifies this window."
 			},
 			"new_file":
 			{
-				"Methods":"new_file()",
-				"Return Value":"View",
-				"Description":"Creates a new file. The returned view will be empty, and its is_loaded method will return True."
+				"method":"new_file()",
+				"return":"View",
+				"description":"Creates a new file. The returned view will be empty, and its is_loaded method will return True."
 			},
 			"find_open_file":
 			{
-				"Methods":"find_open_file(file_name)",
-				"Return Value":"View",
-				"Description":"Finds the named file in the list of open files, and returns the corresponding View, or None if no such file is open.\n"
+				"method":"find_open_file(file_name)",
+				"return":"View",
+				"description":"Finds the named file in the list of open files, and returns the corresponding View, or None if no such file is open.\n"
 			},
 			"active_view":
 			{
-				"Methods":"active_view()",
-				"Return Value":"View",
-				"Description":"Returns the currently edited view."
+				"method":"active_view()",
+				"return":"View",
+				"description":"Returns the currently edited view."
 			},
 			"active_view_in_group":
 			{
-				"Methods":"active_view_in_group(group)",
-				"Return Value":"View",
-				"Description":"Returns the currently edited view in the given group."
+				"method":"active_view_in_group(group)",
+				"return":"View",
+				"description":"Returns the currently edited view in the given group."
 			},
 			"views":
 			{
-				"Methods":"views()",
-				"Return Value":"[View]",
-				"Description":"Returns all open views in the window."
+				"method":"views()",
+				"return":"[View]",
+				"description":"Returns all open views in the window."
 			},
 			"views_in_group":
 			{
-				"Methods":"views_in_group(group)",
-				"Return Value":"[View]",
-				"Description":"Returns all open views in the given group."
+				"method":"views_in_group(group)",
+				"return":"[View]",
+				"description":"Returns all open views in the given group."
 			},
 			"num_groups":
 			{
-				"Methods":"num_groups()",
-				"Return Value":"int",
-				"Description":"Returns the number of view groups in the window."
+				"method":"num_groups()",
+				"return":"int",
+				"description":"Returns the number of view groups in the window."
 			},
 			"active_group":
 			{
-				"Methods":"active_group()",
-				"Return Value":"int",
-				"Description":"Returns the index of the currently selected group."
+				"method":"active_group()",
+				"return":"int",
+				"description":"Returns the index of the currently selected group."
 			},
 			"focus_group":
 			{
-				"Methods":"focus_group(group)",
-				"Return Value":"None",
-				"Description":"Makes the given group active."
+				"method":"focus_group(group)",
+				"return":"None",
+				"description":"Makes the given group active."
 			},
 			"focus_view":
 			{
-				"Methods":"focus_view(view)",
-				"Return Value":"None",
-				"Description":"Switches to the given view."
+				"method":"focus_view(view)",
+				"return":"None",
+				"description":"Switches to the given view."
 			},
 			"get_view_index":
 			{
-				"Methods":"get_view_index(view)",
-				"Return Value":"(group, index)",
-				"Description":"Returns the group, and index within the group of the view. Returns -1 if not found."
+				"method":"get_view_index(view)",
+				"return":"(group, index)",
+				"description":"Returns the group, and index within the group of the view. Returns -1 if not found."
 			},
 			"set_view_index":
 			{
-				"Methods":"set_view_index(view, group, index)",
-				"Return Value":"None",
-				"Description":"Moves the view to the given group and index."
+				"method":"set_view_index(view, group, index)",
+				"return":"None",
+				"description":"Moves the view to the given group and index."
 			},
 			"is_sidebar_visible":
 			{
-				"Methods":"is_sidebar_visible()",
-				"Return Value":"bool",
-				"Description":"Returns true if the sidebar will be shown when contents are available."
+				"method":"is_sidebar_visible()",
+				"return":"bool",
+				"description":"Returns true if the sidebar will be shown when contents are available."
 			},
 			"set_sidebar_visible":
 			{
-				"Methods":"set_sidebar_visible(flag)",
-				"Return Value":"None",
-				"Description":"Sets the sidebar to be shown or hidden when contents are available."
+				"method":"set_sidebar_visible(flag)",
+				"return":"None",
+				"description":"Sets the sidebar to be shown or hidden when contents are available."
 			},
 			"folders":
 			{
-				"Methods":"folders()",
-				"Return Value":"[String]",
-				"Description":"Returns a list of the currently open folders."
+				"method":"folders()",
+				"return":"[String]",
+				"description":"Returns a list of the currently open folders."
 			},
 			"project_file_name":
 			{
-				"Methods":"project_file_name()",
-				"Return Value":"String",
-				"Description":"Returns name of the currently opened project file, if any."
+				"method":"project_file_name()",
+				"return":"String",
+				"description":"Returns name of the currently opened project file, if any."
 			},
 			"project_data":
 			{
-				"Methods":"project_data()",
-				"Return Value":"Dictionary",
-				"Description":"Returns the project data associated with the current window. The data is in the same format as the contents of a .sublime-project file.\n"
+				"method":"project_data()",
+				"return":"Dictionary",
+				"description":"Returns the project data associated with the current window. The data is in the same format as the contents of a .sublime-project file.\n"
 			},
 			"set_project_data":
 			{
-				"Methods":"set_project_data(data)",
-				"Return Value":"None",
-				"Description":"Updates the project data associated with the current window. If the window is associated with a .sublime-project file, the project file will be updated on disk, otherwise the window will store the data internally."
+				"method":"set_project_data(data)",
+				"return":"None",
+				"description":"Updates the project data associated with the current window. If the window is associated with a .sublime-project file, the project file will be updated on disk, otherwise the window will store the data internally."
 			},
 			"run_command":
 			{
-				"Methods":"run_command(string, <args>)",
-				"Return Value":"None",
-				"Description":"Runs the named Command with the (optional) given arguments. Window.run_command is able to run both any sort of command, dispatching the command via input focus."
+				"method":"run_command(string, args)",
+				"return":"None",
+				"description":"Runs the named Command with the (optional) given arguments. Window.run_command is able to run both any sort of command, dispatching the command via input focus."
 			},
 			"show_quick_panel":
 			{
-				"Methods":"show_quick_panel(items, on_done, <flags>, <selected_index>, <on_highlighted>)",
-				"Return Value":"None",
-				"Description":"Shows a quick panel, to select an item in a list. on_done will be called once, with the index of the selected item. If the quick panel was cancelled, on_done will be called with an argument of -1.Items may be an array of strings, or an array of string arrays. In the latter case, each entry in the quick panel will show multiple rows.Flags is a bitwise OR of sublime.MONOSPACE_FONT and sublime.KEEP_OPEN_ON_FOCUS_LOST on_highlighted, if given, will be called every time the highlighted item in the quick panel is changed."
+				"method":"show_quick_panel(items, on_done, flags, selected_index, on_highlighted)",
+				"return":"None",
+				"description":"Shows a quick panel, to select an item in a list. on_done will be called once, with the index of the selected item. If the quick panel was cancelled, on_done will be called with an argument of -1.Items may be an array of strings, or an array of string arrays. In the latter case, each entry in the quick panel will show multiple rows.Flags is a bitwise OR of sublime.MONOSPACE_FONT and sublime.KEEP_OPEN_ON_FOCUS_LOST on_highlighted, if given, will be called every time the highlighted item in the quick panel is changed."
 			},
 			"show_input_panel":
 			{
-				"Methods":"show_input_panel(caption, initial_text, on_done, on_change, on_cancel)",
-				"Return Value":"View",
-				"Description":"Shows the input panel, to collect a line of input from the user. on_done and on_change, if not None, should both be functions that expect a single string argument. on_cancel should be a function that expects no arguments. The view used for the input widget is returned."
+				"method":"show_input_panel(caption, initial_text, on_done, on_change, on_cancel)",
+				"return":"View",
+				"description":"Shows the input panel, to collect a line of input from the user. on_done and on_change, if not None, should both be functions that expect a single string argument. on_cancel should be a function that expects no arguments. The view used for the input widget is returned."
 			},
 			"create_output_panel":
 			{
-				"Methods":"create_output_panel(name, <unlisted>)",
-				"Return Value":"View",
-				"Description":"Returns the view associated with the named output panel, creating it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix.The optional unlisted parameter is a boolean to control if the output panel should be listed in the panel switcher."
+				"method":"create_output_panel(name, unlisted)",
+				"return":"View",
+				"description":"Returns the view associated with the named output panel, creating it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix.The optional unlisted parameter is a boolean to control if the output panel should be listed in the panel switcher."
 			},
 			"find_output_panel":
 			{
-				"Methods":"find_output_panel(name)",
-				"Return Value":"View or None",
-				"Description":"Returns the view associated with the named output panel, or None if the output panel does not exist."
+				"method":"find_output_panel(name)",
+				"return":"View or None",
+				"description":"Returns the view associated with the named output panel, or None if the output panel does not exist."
 			},
 			"destroy_output_panel":
 			{
-				"Methods":"destroy_output_panel(name)",
-				"Return Value":"None",
-				"Description":"Destroys the named output panel, hiding it if currently open."
+				"method":"destroy_output_panel(name)",
+				"return":"None",
+				"description":"Destroys the named output panel, hiding it if currently open."
 			},
 			"active_panel":
 			{
-				"Methods":"active_panel()",
-				"Return Value":"string or None",
-				"Description":"Returns the name of the currently open panel, or None if no panel is open. Will return built-in panel names (e.g. \"console\", \"find\", etc) in addition to output panels."
+				"method":"active_panel()",
+				"return":"string or None",
+				"description":"Returns the name of the currently open panel, or None if no panel is open. Will return built-in panel names (e.g. \"console\", \"find\", etc) in addition to output panels."
 			},
 			"panels":
 			{
-				"Methods":"panels()",
-				"Return Value":"[string]",
-				"Description":"Returns a list of the names of all panels that have not been marked as unlisted. Includes certain built-in panels in addition to output panels."
+				"method":"panels()",
+				"return":"[string]",
+				"description":"Returns a list of the names of all panels that have not been marked as unlisted. Includes certain built-in panels in addition to output panels."
 			},
 			"create_output_panel":
 			{
-				"Methods":"create_output_panel(name)",
-				"Return Value":"View",
-				"Description":"Returns the view associated with the named output panel, created it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix."
+				"method":"create_output_panel(name)",
+				"return":"View",
+				"description":"Returns the view associated with the named output panel, created it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix."
 			},
 			"lookup_symbol_in_index":
 			{
-				"Methods":"lookup_symbol_in_index(symbol)",
-				"Return Value":"[Location]",
-				"Description":"Returns all locations where the symbol is defined across files in the current project."
+				"method":"lookup_symbol_in_index(symbol)",
+				"return":"[Location]",
+				"description":"Returns all locations where the symbol is defined across files in the current project."
 			},
 			"lookup_symbol_in_open_files":
 			{
-				"Methods":"lookup_symbol_in_open_files(symbol)",
-				"Return Value":"[Location]",
-				"Description":"Returns all locations where the symbol is defined across open files."
+				"method":"lookup_symbol_in_open_files(symbol)",
+				"return":"[Location]",
+				"description":"Returns all locations where the symbol is defined across open files."
 			},
 			"extract_variables":
 			{
-				"Methods":"extract_variables()",
-				"Return Value":"Dictionary",
-				"Description":"Returns a dictionary of strings populated with contextual keys: packages, platform, file, file_path, file_name, file_base_name, file_extension, folder, project, project_path, project_name, project_base_name, project_extension. This dictionary is suitable for passing to sublime.expand_variables()."
+				"method":"extract_variables()",
+				"return":"Dictionary",
+				"description":"Returns a dictionary of strings populated with contextual keys: packages, platform, file, file_path, file_name, file_base_name, file_extension, folder, project, project_path, project_name, project_base_name, project_extension. This dictionary is suitable for passing to sublime.expand_variables()."
 			},
 			"open_file":
 			{
-				"Methods":"open_file(file_name, <flags>)",
-				"Return Value":"View",
-				"Description":"Opens the named file, and returns the corresponding view. If the file is already opened, it will be brought to the front. Note that as file loading is asynchronous, operations on the returned view won't be possible until its is_loading() method returns False."
+				"method":"open_file(file_name, flags)",
+				"return":"View",
+				"description":"Opens the named file, and returns the corresponding view. If the file is already opened, it will be brought to the front. Note that as file loading is asynchronous, operations on the returned view won't be possible until its is_loading() method returns False."
 			}
+		}
 }
 
 

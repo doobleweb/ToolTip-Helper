@@ -1,5 +1,5 @@
 [
     {
-        "keys": ["ctrl+8"], "command": "tool_tip", "args": {}
+        "keys": ["ctrl+8"], "command": "tool_tip_helper", "args": {}
     }
 ]

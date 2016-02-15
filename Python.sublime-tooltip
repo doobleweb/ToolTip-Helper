@@ -1,5 +1,4 @@
 {
-    "scope": "source.python",
     "methods": {
     	"set_timeout": {
     		"method":"set_timeout(callback, delay)",

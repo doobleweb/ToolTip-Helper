@@ -12,7 +12,7 @@ class Utilities():
         return message
 
 
-class ToolTipCommand(sublime_plugin.TextCommand):
+class ToolTipHelperCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         # get the cursor point
@@ -85,7 +85,7 @@ class ToolTipCommand(sublime_plugin.TextCommand):
 
     def get_immediate_files(self):
         try:
-            file_settings = 'ToolTip.sublime-settings'
+            file_settings = 'ToolTipHelper.sublime-settings'
             file_load = sublime.load_settings(file_settings)
             # file_load.set("some_key", "some_value")
             files = file_load.get("files")

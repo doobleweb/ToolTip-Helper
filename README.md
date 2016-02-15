@@ -15,4 +15,5 @@ You can take my <code>python.sublime-tooltip</code> to do some test, in this fil
 Future Goals:
 <ul> 
   <li> Get tooltip on your functions documentation.
+  <li> Change timeout, popup window width and so on in settings file.
 </ul>

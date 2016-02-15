@@ -63,7 +63,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
 
 
     def read_JSON(self, path):
-        with open(path) as json_file:
+        with open(path, encoding="utf8") as json_file:
                 return json.load(json_file)
 
 

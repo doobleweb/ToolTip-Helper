@@ -47,7 +47,7 @@ class ToolTipCommand(sublime_plugin.TextCommand):
 
 
     def match_selection(self, sel, file_path):
-        search_result = "Documentation not exist"
+        search_result = "Documentation does not exist"
 
         try:
             # search the object in json file
@@ -64,7 +64,7 @@ class ToolTipCommand(sublime_plugin.TextCommand):
             json_data = self.read_JSON(file_path)
             return json_data["methods"][search_result]
         except:
-            print("Documentation not exist or problem with load JSON file")
+            print("Documentation does not exist or problem with load JSON file")
 
 
     def read_JSON(self, path):

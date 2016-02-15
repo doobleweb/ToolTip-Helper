@@ -7,7 +7,7 @@ class Utilities():
         for item in json:
             # if some attribute empty, don't put him in the popup window
             if json[item] != "":
-                message += '<b>' + item + ':</b>' + " " + json[item] + " "
+                message += '<b>' + item + ':</b>' + " " + json[item] + " <br>"
         message += '</pre>'
         return message
 

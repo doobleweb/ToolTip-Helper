@@ -13,7 +13,7 @@ class Utilities():
 
 
 class ToolTipHelperCommand(sublime_plugin.TextCommand):
-
+    """This class represent tooltip window for showing documentation"""
     def run(self, edit):
         # get the cursor point
         sel = self.view.sel()[0]
@@ -21,13 +21,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         current_file_source = self.view.scope_name(sel.begin())
         # print(current_file_source)
         file_path = self.get_tooltip_file_path(current_file_source)
-        # get specific json file
-        json = self.read_JSON(file_path)
-        # get scope from json file
-        scope = json["scope"]
-        
-        if scope in current_file_source and \
-            int(sublime.version()) >= 3080:
+        # check if it proper version
+        if int(sublime.version()) >= 3080:
             # get user selection
             sel = self.user_selection(sel)
             # do match with user selection and return the result
@@ -36,7 +31,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             sublime.set_timeout(lambda:self.view.hide_popup(),10000)
             # open popup window in the current cursor
             self.view.show_popup(search_result, on_navigate=print, max_width=300)
-
+            
 
     def user_selection(self, sel):
         # get the whole word from this point

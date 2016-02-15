@@ -12,21 +12,21 @@
                 "children":
                 [
                     {
-                        "id": "ToolTip",
-                        "caption": "ToolTip",
+                        "id": "ToolTipHelper",
+                        "caption": "ToolTipHelper",
                         "children":
                         [
                             // {
                             //     "command": "open_file", "args":
                             //     {
-                            //         "file": "${packages}/ToolTip/ToolTip.sublime-settings"
+                            //         "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
                             //     },
                             //     "caption": "Settings – Default"
                             // },
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/User/ToolTip.sublime-settings"
+                                    "file": "${packages}/User/ToolTipHelper.sublime-settings"
                                 },
                                 "caption": "Settings – User"
                             }

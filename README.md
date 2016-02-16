@@ -23,12 +23,12 @@ There, you should search "Add Repository":
 
 <img src="http://s12.postimg.org/iv5k5nwul/add_repo.png" alt="add repo">
 
-After that, you need paste this link: "https://github.com/AvitanI/ToolTip-Helper.git" and press enter.
-<img src="http://s10.postimg.org/79coukpm1/link_to_repo.png" alt="add link">
+After that, you need paste this link: "https://github.com/doobleweb/ToolTip-Helper.git" and press enter.
+<img src="http://s9.postimg.org/vu5pvg467/url_dooble.png" alt="add link">
 
 Once the repository added you need to install the package. To do so open again palette (ctrl+shift+p) and search "Install Package" and press enter.
 
-<b>NOTE:</b>It is recommended to re-open sublime text after the installation finished.
+<b>NOTE:</b> It is recommended to re-open sublime text after the installation finished.
 
 In order to get plugin works you need to add some settings to <code>ToolTipHelper.sublime-settings</code> file.
 You can find the file in Packages\User folder or in the menu Preferences>>package settings>>tooltip helper>>settings user.

@@ -1,4 +1,7 @@
 # ToolTip-Helper
+
+author: Idan Avitan
+
 This plugin shows tooltip under the cursor when he on functions in sublime text 3.
 The functions can be in every language you choose.
 

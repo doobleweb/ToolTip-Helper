@@ -18,8 +18,11 @@ class Utilities():
         message = ""
 
         if keyorder:
-            # the output of sorted function is an ordered list of tuples 
-            ordered_result = sorted(json.items(), key=lambda i:keyorder.index(i[0]))
+            try:
+                # the output of sorted function is an ordered list of tuples 
+                ordered_result = sorted(json.items(), key=lambda i:keyorder.index(i[0]))
+            except Exception as e:
+                ordered_result = []
             message = Utilities.get_html_from_list(ordered_result)
         else:
             message = Utilities.get_html_from_dictionary(json)
@@ -98,6 +101,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def __init__(self, view):
         # load settings
         self.view = view
+        self.show_poup = True
         self.settings = sublime.load_settings('ToolTipHelper.sublime-settings')
         self.files = self.settings.get("files")
         self.keyorder = self.get_keyorder()
@@ -122,7 +126,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         # edit the messege in html for popup window
         search_result = Utilities.result_format(json_result, self.keyorder, self.link)
         # check if it proper version
-        if CURRENT_VERSION:
+        if CURRENT_VERSION and \
+            self.show_poup:
             # set timout to 10 seconds, in the end hide the tooltip window
             sublime.set_timeout(lambda:self.view.hide_popup(), self.set_timeout)
             # open popup window in the current cursor
@@ -163,6 +168,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             if 'link' in json_result:
                 self.link = json_result['link']
         except:
+            self.show_poup = False
             search_result = "Documentation not exist"
         return json_result
     
@@ -173,6 +179,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             return json_data["methods"][search_result]
         except Exception as e:
             logging.error('Documentation not exist.')
+            self.show_poup = False
 
     def read_JSON(self, path):
         # print("read json from: " + path)
@@ -182,6 +189,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                 # print("json load success")
             except Exception as e:
                 logging.error('cannot load JSON file.')
+                self.show_poup = False
             return data
 
     def get_tooltip_file_path(self, current_file_source):
@@ -205,6 +213,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         except:
             logging.error('cannot loads the files')
             files = []
+            self.show_poup = False
         return files
 
     def get_keyorder(self):

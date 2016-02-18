@@ -1,8 +1,17 @@
 {
-	"files": 
+	"files":
 	[
-		{"source":"", "file_path":""},
-		{"source":"", "file_path":""},
-		{"source":"", "file_path":""}
-	]
+		{
+			"file_path": "",
+			"link": "",
+			"source": ""
+		}
+	],
+	"keyorder":
+	[
+		
+	],
+	"max_width": "700",
+	"set_timeout": "10000",
+	"timeout":"true"
 }

@@ -622,7 +622,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                 relative_path = sublime.packages_path() + '\\ToolTipHelper\\'
                 if i['source'] in current_file_source:
                     full_path = relative_path + i['file_path']
-                    self.link = i['link']
+                    if 'link' in i:
+                        self.link = i['link']
                     break       
         return full_path
         

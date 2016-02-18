@@ -11,26 +11,19 @@
                 "id": "package-settings",
                 "children":
                 [
+                    // {
+                    //     "command": "open_file", "args":
+                    //     {
+                    //         "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
+                    //     },
+                    //             "caption": "ToolTip Helper Settings – Default"
+                    // },
                     {
-                        "id": "ToolTipHelper",
-                        "caption": "ToolTipHelper",
-                        "children":
-                        [
-                            // {
-                            //     "command": "open_file", "args":
-                            //     {
-                            //         "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
-                            //     },
-                            //     "caption": "Settings – Default"
-                            // },
-                            {
-                                "command": "open_file", "args":
-                                {
-                                    "file": "${packages}/User/ToolTipHelper.sublime-settings"
-                                },
-                                "caption": "Settings – User"
-                            }
-                        ]
+                        "command": "open_file", "args":
+                        {
+                            "file": "${packages}/User/ToolTipHelper.sublime-settings"
+                        },
+                            "caption": "ToolTip Helper Settings – User"
                     }
                 ]
             }

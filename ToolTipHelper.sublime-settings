@@ -2,16 +2,16 @@
 	"files":
 	[
 		{
-			"file_path": "",
-			"link": "",
-			"source": ""
+			"file_name": "PythonSublime.sublime-tooltip",
+			"link": "http://www.sublimetext.com/docs/3/api_reference.html",
+			"source": "source.python"
 		}
 	],
+	"has_timeout": true,
 	"keyorder":
 	[
-		
+
 	],
-	"max_width": "700",
-	"set_timeout": "10000",
-	"timeout":"true"
+	"max_width": 700,
+	"set_timeout": 10000
 }

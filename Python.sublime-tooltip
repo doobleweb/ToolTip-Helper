@@ -1,6 +1,5 @@
 {
-    "methods": {
-    	"set_timeout": {
+    "set_timeout": {
     		"method":"set_timeout(callback, delay)",
     		"description":"Runs the callback in the main thread after the given delay (in milliseconds). Callbacks with an equal delay will be run in the order they were added.",
     		"return":"None"
@@ -249,7 +248,8 @@
 			{
 				"method":"substr(point)",
 				"return":"String",
-				"description":"Returns the character to the right of the point."
+				"description":"Returns the character to the right of the point.",
+				"link":"www.walla.co.il"
 			},
 			"insert":
 			{
@@ -759,7 +759,6 @@
 				"return":"View",
 				"description":"Opens the named file, and returns the corresponding view. If the file is already opened, it will be brought to the front. Note that as file loading is asynchronous, operations on the returned view won't be possible until its is_loading() method returns False."
 			}
-		}
 }
 
 

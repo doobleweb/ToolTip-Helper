@@ -1,0 +1,7 @@
+{
+    "*": {
+        ">=3080": [
+            PythonSublime.sublime-tooltip
+        ]
+    }
+}

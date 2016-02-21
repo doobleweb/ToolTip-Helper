@@ -10,13 +10,13 @@
                 "children": 
                 [
                     {
-                        // {
-                        //     "command": "open_file", "args":
-                        //     {
-                        //         "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
-                        //     },
-                        //             "caption": "ToolTip Helper Settings – Default"
-                        // },
+                        "command": "open_file", "args":
+                        {
+                            "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
+                        },
+                        "caption": "ToolTip Helper Settings – Default"
+                    },
+                    {
                         "command": "open_file", "args":
                         {
                             "file": "${packages}/User/ToolTipHelper.sublime-settings"

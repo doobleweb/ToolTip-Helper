@@ -29,7 +29,7 @@ class Utilities():
             message = Utilities.get_html_from_dictionary(json)
         # add helper link if there is such
         if link:
-            message += '<a href=\"%s\">See more</a>' % link
+            message += '<a style="color: white;" href=\"%s\">See more</a>' % link
         return message
 
     @staticmethod

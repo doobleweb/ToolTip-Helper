@@ -275,17 +275,17 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def get_tooltip_files(self, current_scope):
         """ get all files paths which have the current scope """
         files = self.get_immediate_files()
-        relative_path = sublime.packages_path() + '\\ToolTipHelper\\'
+        relative_path = os.path.join(sublime.packages_path(), 'ToolTipHelper')
         tooltip_files = []
 
         if files:
             for file in files:  
                 if file['source'] in current_scope:
-                    full_path = relative_path + file['file_name']
+                    full_path = os.path.join(relative_path, file['file_name'])
                     # replace the file name with full path
                     file['file_name'] = full_path
                     tooltip_files.append(file)
-        logging.info("Checking the files: " + str(tooltip_files))      
+        logging.info("Checking files with matched scope: " + str(tooltip_files))      
         return tooltip_files
         
     def get_immediate_files(self):

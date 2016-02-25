@@ -212,23 +212,30 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         results = []
         count = 0
 
-        for file in tooltip_files:
-            result = {}
+        for file in tooltip_files:            
             # search the parameter in json file
             json_result = self.search_in_json(sel, file['file_name'])
             # print("json_result: " + str(json_result))
-            if json_result:
-                result['json_result'] = json_result
-                result['file_name'] = file['file_name']
-                # get the correct link for the result
-                if 'link' not in json_result and \
-                    'link' in file:
-                    result['link'] = file['link']
-                results.append(result)
-                # get the keys from the result
-                keys = list(json_result.keys())
-                # add key to keyorder and count the change
-                count += self.update_keyorder_list(keys)
+            items = []
+            if isinstance(json_result, dict):
+                items.append(json_result)
+            elif isinstance(json_result, list):
+                items += json_result
+            
+            for item in items:
+                result = {}
+                if item:
+                    result['json_result'] = item
+                    result['file_name'] = file['file_name']
+                    # get the correct link for the result
+                    if 'link' not in item and \
+                        'link' in file:
+                        result['link'] = file['link']
+                    results.append(result)
+                    # get the keys from the result
+                    keys = list(item.keys())
+                    # add key to keyorder and count the change
+                    count += self.update_keyorder_list(keys)
         # if there is one change, save it in settings.
         if count != 0:
             self.save_keyorder_list()
@@ -276,6 +283,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         """ get all files paths which have the current scope """
         files = self.get_immediate_files()
         relative_path = os.path.join(sublime.packages_path(), 'ToolTipHelper')
+        print(relative_path)
         tooltip_files = []
 
         if files:

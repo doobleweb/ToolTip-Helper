@@ -64,5 +64,6 @@ Currently, the plugin works with <code>F1</code>. If you want to change it,  go 
 ## Future Goals:
 <ul> 
   <li> Go To Definition of each document.
+  <li> Add debug to settings which write log file.
   <li> CSS design to tooltip window.
 </ul>

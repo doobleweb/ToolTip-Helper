@@ -5,7 +5,13 @@ Author: Idan Avitan
 This plugin shows tooltip under the cursor when he on functions in sublime text 3.
 The functions can be in every language you choose.
 
-<img src="http://s29.postimg.org/9gworxjlj/tooltip.png" alt="tooltip">
+<b>Built-in Doc</b>
+
+<img src="http://s9.postimg.org/5bqio33xr/tooltip.png" alt="tooltip">
+
+<b>Dynamic Doc</b>
+
+<img src="http://s11.postimg.org/mk68krefn/dynamic_doc.png" alt="dynamic doc">
 
 ## How it works?
 It's very simple, you need to enter some data in JSON file <code>languageName.sublime-tooltip</code> and the tooltip takes the data from there and shows popup window.

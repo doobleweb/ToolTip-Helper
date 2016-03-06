@@ -63,5 +63,6 @@ Currently, the plugin works with <code>F1</code>. If you want to change it,  go 
 
 ## Future Goals:
 <ul> 
+  <li> Go To Definition of each document.
   <li> CSS design to tooltip window.
 </ul>

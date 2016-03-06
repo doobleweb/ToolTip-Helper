@@ -7,11 +7,11 @@ The functions can be in every language you choose.
 
 <b>Built-in Doc</b>
 
-<img src="http://s9.postimg.org/5bqio33xr/tooltip.png" alt="tooltip">
+<img src="http://s28.postimg.org/op1xxk9j1/tooltip.png" alt="tooltip">
 
 <b>Dynamic Doc</b>
 
-<img src="http://s11.postimg.org/mk68krefn/dynamic_doc.png" alt="dynamic doc">
+<img src="http://s15.postimg.org/xys3o4puj/dynamic_doc.png" alt="dynamic doc">
 
 ## How it works?
 It's very simple, you need to enter some data in JSON file <code>languageName.sublime-tooltip</code> and the tooltip takes the data from there and shows popup window.

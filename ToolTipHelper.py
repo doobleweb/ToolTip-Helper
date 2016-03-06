@@ -10,26 +10,34 @@ import os
 
 # get the current version of sublime
 CURRENT_VERSION = int(sublime.version()) >= 3080
+# logging messeges for debuging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 class Utilities():
     """This class represent utilities for the plugin"""
     @staticmethod
     def result_format(json, keyorder, link):
+        # print("json: " + str(json))
         message = ""
 
         if keyorder:
+            # print("keyorder: " + str(keyorder))
             try:
                 # the output of sorted function is an ordered list of tuples 
                 ordered_result = sorted(json.items(), key=lambda i:keyorder.index(i[0]))
+                # print("ordered_result: " + str(ordered_result))
             except Exception as e:
+                print(e)
                 ordered_result = []
             message = Utilities.get_html_from_list(ordered_result)
         else:
+            # print("without keyorder!")
             message = Utilities.get_html_from_dictionary(json)
         # add helper link if there is such
         if link:
             message += '<a style="color: white;" href=\"%s\">See more</a>' % link
+        # print("message: " + message)
         return message
 
     @staticmethod
@@ -101,6 +109,7 @@ class EnterDataCommand(sublime_plugin.WindowCommand):
 
 class ToolTipHelperCommand(sublime_plugin.TextCommand):
     """This class represent tooltip window for showing documentation """
+
     def __init__(self, view):
         """ load settings """
         self.view = view
@@ -111,8 +120,11 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         self.max_width = self.get_max_width()
         self.has_timeout = self.has_timeout()
         self.results_arr = []
+        self.last_choosen_fun = ""
+        self.last_index = 0
+        self.word_point = ()
         # self.__str__()
-
+        
     def __str__(self):
         print(  "files: "       + str(self.files)       + '\n' +
                 "keyorder: "    + str(self.keyorder)    + '\n' + 
@@ -124,23 +136,28 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     #     print("Object being destructed")
 
     def run(self, edit):
+        # print(sublime.active_window().lookup_symbol_in_index("run"))
         if CURRENT_VERSION:
             # get the cursor point
             sel = self.view.sel()[0]
-            # get the current scope by cursor position
+            # get the current scope of cursor position
             current_scope = self.view.scope_name(sel.begin())
-            # print(current_file_source)
-            tooltip_files_arr = self.get_tooltip_files(current_scope)
+            # update scope in status bar
+            sublime.status_message("scope: %s" % current_scope)
             # get user selection in string
             sel = self.get_user_selection(sel)
+            # print("scope: " + current_scope)
+            tooltip_files_arr = self.get_tooltip_files(current_scope)
             # do match with user selection and return the result
             results = self.match_selection(sel, tooltip_files_arr)
-            # print("len results: " + str(len(results)))
+            # print("results: " + str(results))
             for result in results:
                 # get the correct link if there is 
                 link = self.has_link(result)
+                # print("link: " + link)
                 # edit the result in html for tooltip window
-                html_tooltip = Utilities.result_format(result['json_result'], self.keyorder, link)
+                html_tooltip = Utilities.result_format(result['json_result'], 
+                                                        self.keyorder, link)
                 self.results_arr.append(html_tooltip)
             # this names will be in the output panel
             names = self.get_file_names(results)
@@ -149,20 +166,30 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             if num_of_results == 1:
                 self.show_tooltip_popup(self.results_arr[0])
             elif num_of_results > 1:
-                sublime.active_window().show_quick_panel(names, self.on_done, sublime.MONOSPACE_FONT)
+                if self.last_choosen_fun != sel:
+                    self.last_index = 0
+                    self.last_choosen_fun = sel
+                sublime.active_window().show_quick_panel(names, self.on_done, 
+                                                        sublime.MONOSPACE_FONT, 
+                                                        self.last_index)
+            else:
+                self.show_tooltip_popup("documentation not exist")
+
+    def is_enabled(self):
+        if len(self.view.sel()) > 1:
+            return False
+        return True
 
     def get_file_names(self, results):
         """ get string names for panel """
         names = []
-        name_regex = r"(.+)\.sublime-tooltip"
+        count = 0 
         for name in results:
-            # get the file name from the path
-            file_name = os.path.basename(name['file_name'])
-            try:
-                file_name = re.match(name_regex, file_name).group(1)
-            except Exception as e:
-                logging.error('cannot match file name.')
-            names.append(file_name)
+            count += 1
+            path, extension = os.path.splitext(name['file_name'])
+            file_name = os.path.basename(path)
+            # name_regex = r"(.+)\.[sublime\-tooltip|" + re.escape(extension) + r"]+"
+            names.append(str(count) + '. ' + file_name)
         return names
 
     def has_link(self, result):
@@ -177,19 +204,28 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
 
     def on_done(self, index):
         """ when choosing item it will open popup in the given index """
+        self.last_index = index
         self.show_tooltip_popup(self.results_arr[index])
 
     def show_tooltip_popup(self, search_result):
         """ open the poup with limit of time """
         if self.has_timeout:
             # set timout to 10 seconds, in the end hide the tooltip window
-            sublime.set_timeout(lambda:self.view.hide_popup(), self.set_timeout)
+            # sublime.set_timeout(lambda:self.view.hide_popup(), self.set_timeout)
+            sublime.set_timeout(lambda:self.hide(), self.set_timeout)
         # open popup window in the current cursor
         show_popup(self.view, 
                     search_result, 
                     on_navigate=self.on_navigate, 
                     max_width=self.max_width)
         self.results_arr = []
+
+    def hide(self):
+        self.view.hide_popup()
+        pt1 = self.word_point.begin()
+        pt2 = self.word_point.end()
+        # print(str(pt1) + " " + str(pt2))
+        self.view.add_regions('ToolTipHelper', [sublime.Region(pt1, pt2)], 'invalid', '' , sublime.HIDDEN)
 
     def on_navigate(self, href):
         """ open the link in a new tab on web browser """
@@ -199,9 +235,13 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             logging.error('cannot open link on web browser.')
 
     def get_user_selection(self, sel):
-        """ get user selection and return her in string"""
+        """ get user selection and return her in string """
         # get the whole word from this point
         get_word = self.view.word(sel)
+        self.word_point = get_word
+        pt1 = get_word.begin()
+        pt2 = get_word.end()
+        self.view.add_regions('ToolTipHelper', [sublime.Region(pt1, pt2)], 'invalid', '' , sublime.DRAW_NO_FILL)
         # get the word in string
         get_word_str = self.view.substr(get_word)
         # print("selected word:" + get_word_str)
@@ -209,19 +249,29 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
 
     def match_selection(self, sel, tooltip_files):
         """ this method take care to the results, links and the keys which be implemented in the tooltip """
+        # print("tooltip_files: " + str(tooltip_files))
         results = []
         count = 0
+        # run
+        dynamic_doc_arr = self.search_for_dynamic_doc(sel)
+        if dynamic_doc_arr:
+            # print("dynamic_doc_arr: " + str(dynamic_doc_arr))
+            results += dynamic_doc_arr
 
-        for file in tooltip_files:            
+        # print(tooltip_files)
+
+        for file in tooltip_files: 
+            # print("file: " + str(file))           
             # search the parameter in json file
             json_result = self.search_in_json(sel, file['file_name'])
             # print("json_result: " + str(json_result))
             items = []
             if isinstance(json_result, dict):
+                # print("is dic")
                 items.append(json_result)
             elif isinstance(json_result, list):
                 items += json_result
-            
+            # run
             for item in items:
                 result = {}
                 if item:
@@ -234,12 +284,159 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     results.append(result)
                     # get the keys from the result
                     keys = list(item.keys())
+                    # print("keys: " + str(keys))
                     # add key to keyorder and count the change
                     count += self.update_keyorder_list(keys)
         # if there is one change, save it in settings.
+        # print("end count: " + str(count))
         if count != 0:
             self.save_keyorder_list()
+        # print("results: " + str(results))
         return results
+
+    def search_for_dynamic_doc(self, sel):
+        results = sublime.active_window().lookup_symbol_in_index(sel)
+        # print(results)
+        # [("/C/Users/Idan's/AppData/Roaming/Sublime Text 3/Packages/Test/Scripts.js", 'Test/Scripts.js', (11, 10))]
+        # {'file_name': "", 'json_result': {'description': '', 'link': '', 'method': '', 'return': ''}}
+        if not results:
+            return []
+
+        jsons = []
+        count = 0
+
+        for result in results:
+            # get file path
+            file_name = result[0]
+            splited_file_name = file_name.split('/')
+            # in case we have a broken path
+            if ':' not in splited_file_name[1]:
+                file_name = self.fix_broken_path(splited_file_name)
+            # print("file_name: " + file_name)
+            # get row number
+            row = result[2][0]
+            # print(row)
+            content = self.get_file_content(file_name)
+            # print(content)
+            has_location , location = self.get_doc_location(content, row)
+            # print(location)
+            # if len(location) != 2:
+            if not has_location:
+                continue
+            # print(location)
+            json_result = self.get_doc_content_by_location(content, location)
+            # doc_content = self.get_doc_content_by_location(content, location)
+            # print("doc_content: " + str(doc_content))
+            # groups = self.match(doc_content)
+            # # print("groups: " + str(groups))
+            # if not len(groups):
+            #     continue
+            # json_result = self.get_result_in_dic(groups)
+            # json_result = self.match(doc_content)
+            # print("json_result : " + str(json_result))
+            if json_result:
+                jsons.append({"file_name": file_name, "json_result": json_result})
+            keys = list(json_result.keys())
+            # print("keys: " + str(keys))
+            # add key to keyorder and count the change
+            count += self.update_keyorder_list(keys)
+        # if there is one change, save it in settings.
+        # print("end count: " + str(count))
+        if count != 0:
+            self.save_keyorder_list()
+        # print("results: " + str(jsons)) run
+        return jsons
+
+    def get_doc_location(self, content, row):
+        """ get location of doc - start row and end row """
+        location = {"start": None, "end": None}
+        has_location = False
+        count = 0
+        for i in reversed(range(row)): # instead of range(row, -1, -1):
+            if '<doc>' in content[i]:
+               location["start"] = i
+            elif '</doc>' in content[i]:
+               location["end"] = i
+            # check if not empty
+            if location["start"] != None and \
+                location["end"] != None:
+                has_location = True
+                break
+        return has_location, location
+
+    def fix_broken_path(self, old_path):
+        """ in case the path is broken this fun return a fixed file path """
+        old_path[1] += ':' 
+        new_path = ""
+        for i in range(1, len(old_path)):
+            new_path += old_path[i]
+            if i != len(old_path)-1:
+                new_path += '\\'
+        return new_path
+
+    def get_file_content(self, file_name):
+        """ read file and get the lines in array """
+        try:
+            with open(file_name) as f:
+                content = f.readlines()
+                return content
+        except Exception as e:
+            print(e)
+            return []
+
+    def get_doc_content_by_location(self, content, location):
+        """ get the specific documentation by location """
+        # two points: starting row & ending row
+        start = location['start']
+        end = location['end']
+        # remove new lines & tabs
+        formated_content = [content[i].rstrip().replace('\t', "") for i in range(start+1, end)]
+        # print("formated_content: " + str(formated_content))
+        line_regex = r"\s*[~!@#$%^&*?<>()\s]*\s*(\w+)\s*\:\s*(.+)"
+        dic = {}
+        last_key = ""
+        last_value = ""
+        for line in formated_content:
+            # print("line: " + line)
+            try:
+                groups = re.match(line_regex, line.strip()).groups()
+                if groups:
+                    key = groups[0].strip()
+                    value = groups[1].strip()
+                    dic[key] = value
+                    last_key = key
+                    last_value = value
+            except Exception as e:
+                continued_line = re.match(r"\s*[~!@#$%^&*?<>()\s]*\s*(.+)\s*", line.strip()).groups(0)[0].strip()
+                # print("continued_line: " + continued_line)
+                dic[last_key] = last_value + " " + continued_line
+                # print(e)
+        # print("dic: " + str(dic))
+        return dic
+    
+    def match(self, result):
+        """ get the doc match in tuple """
+        # regex = r"^#doc#\s*(desc\:(?:\s*\w+\,?)+)\s*((?:params\:(?:\s*\w+\,?)+)?)\s*((?:return\:(?:\s*\w+\,?)+)?)\s*#doc#$"
+        # regex = r"\s*[~!@#$%^&*?<>]*\s#doc#\s*[~!@#$%^&*?<>]*\s*(description\:(?:[~!@#$%^&*?<>]\s*\w+\,?)+)\s*[~!@#$%^&*?<>]*\s*((?:parameters\:(?:[~!@#$%^&*?<>]\s*\w+\,?)+)?)\s*[~!@#$%^&*?<>]*\s*((?:return\:(?:[~!@#$%^&*?<>]\s*\w+\,?)+)?)\s*[~!@#$%^&*?<>]*\s*#doc#"
+        regex = r"((\w+\:\w+\,?)*)"
+        # "#doc# desc: this is, my description params: param1 param2 return: string #doc#"
+        try:
+            groups = re.match(regex, result.strip()).groups()
+            return groups 
+        except Exception as e:
+            print(e)
+            return ()
+        
+
+    def get_result_in_dic(self, groups):
+        """ get json result in dictionary """
+        dic = {}
+
+        for i in groups:
+            split = i.split(':')
+            dic[split[0]] = split[1].strip()
+        # print(dic)
+        return dic
 
     def update_keyorder_list(self, keys):
         """ add key to key order list """
@@ -249,6 +446,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             if key not in self.keyorder:
                 count += 1
                 self.keyorder.append(key)
+        # print(count)
         return count
 
     def save_keyorder_list(self):
@@ -283,17 +481,36 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         """ get all files paths which have the current scope """
         files = self.get_immediate_files()
         relative_path = os.path.join(sublime.packages_path(), 'ToolTipHelper')
-        print(relative_path)
+        # print(relative_path)
         tooltip_files = []
+        scope_arr = list(reversed(current_scope.strip().split(' ')))
+        # print("scope_arr: " + str(scope_arr))
 
+        has_files = False
         if files:
-            for file in files:  
-                if file['source'] in current_scope:
-                    full_path = os.path.join(relative_path, file['file_name'])
-                    # replace the file name with full path
-                    file['file_name'] = full_path
-                    tooltip_files.append(file)
-        logging.info("Checking files with matched scope: " + str(tooltip_files))      
+            for scope in scope_arr:
+                for file in files:
+                    file_source = file['source']
+                    if file_source in scope:
+                        # print("file_source: " + file_source)
+                        full_path = os.path.join(relative_path, file['file_name'])
+                        # replace the file name with full path
+                        file['file_name'] = full_path
+                        tooltip_files.append(file)
+                        has_files = True
+                if has_files:
+                    break
+            logging.info("Checking files with matched scope: " + str(tooltip_files))
+        
+        # if files:
+        #     for file in files:  
+        #         if file['source'] in current_scope:
+        #             full_path = os.path.join(relative_path, file['file_name'])
+        #             # replace the file name with full path
+        #             file['file_name'] = full_path
+        #             tooltip_files.append(file)
+        # logging.info("Checking files with matched scope: " + str(tooltip_files))
+        # print("tooltip_files: " + str(tooltip_files))      
         return tooltip_files
         
     def get_immediate_files(self):

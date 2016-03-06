@@ -63,8 +63,5 @@ Currently, the plugin works with <code>F1</code>. If you want to change it,  go 
 
 ## Future Goals:
 <ul> 
-  <li> User interface for manage the settings file.
   <li> CSS design to tooltip window.
-  <li> Get tooltip on your functions documentation.
-  <li> Change timeout, popup window width and so on in settings file.
 </ul>

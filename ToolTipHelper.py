@@ -490,7 +490,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def get_tooltip_files(self, current_scope):
         """ get all files paths which have the current scope """
         files = self.get_immediate_files()
-        relative_path = os.path.join(os.path.join(sublime.packages_path(), 'ToolTipHelper'), 'db')
+        relative_path = os.path.join(os.path.join(sublime.packages_path(), 'ToolTip-Helper'), 'db')
         # print("relative_path: " + relative_path)
         tooltip_files = []
         scope_arr = list(reversed(current_scope.strip().split(' ')))

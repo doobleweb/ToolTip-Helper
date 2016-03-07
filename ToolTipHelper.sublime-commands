@@ -1,3 +1,4 @@
 [
-    { "caption": "Insert Data To Tooltip Helper Settings", "command": "enter_data" }
+    { "caption": "Insert Data To Tooltip Helper Settings", "command": "enter_data" },
+    { "caption": "Run ToolTip Helper", "command": "tool_tip_helper" }
 ]

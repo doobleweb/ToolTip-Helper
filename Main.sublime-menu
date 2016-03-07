@@ -12,7 +12,7 @@
                     {
                         "command": "open_file", "args":
                         {
-                            "file": "${packages}/ToolTipHelper/ToolTipHelper.sublime-settings"
+                            "file": "${packages}/ToolTipHelper/ToolTip-Helper.sublime-settings"
                         },
                         "caption": "ToolTip Helper Settings – Default"
                     },

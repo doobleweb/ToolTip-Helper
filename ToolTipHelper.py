@@ -112,7 +112,7 @@ class EnterDataCommand(sublime_plugin.WindowCommand):
             file_settings = 'ToolTipHelper.sublime-settings'
             file_load = sublime.load_settings(file_settings)
             files = file_load.get("files")
-            files.append({"file_name":self.file_name, "source":self.scope, "link":self.link})
+            files.append({"file_name":self.file_name, "scope":self.scope, "link":self.link})
             file_load.set("files", files)
             sublime.save_settings(file_settings)
             sublime.status_message("the changes was saved!")
@@ -363,7 +363,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
        
         if '</doc>' not in content[row-2]:
                 return False, {}
-                
+
         for i in reversed(range(row)): # instead of range(row, -1, -1):
             if '<doc>' in content[i]:
                location["start"] = i
@@ -490,8 +490,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def get_tooltip_files(self, current_scope):
         """ get all files paths which have the current scope """
         files = self.get_immediate_files()
-        relative_path = os.path.join(sublime.packages_path(), 'ToolTipHelper')
-        # print(relative_path)
+        relative_path = os.path.join(os.path.join(sublime.packages_path(), 'ToolTipHelper'), 'db')
+        # print("relative_path: " + relative_path)
         tooltip_files = []
         scope_arr = list(reversed(current_scope.strip().split(' ')))
         # print("scope_arr: " + str(scope_arr))
@@ -501,9 +501,9 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         if files:
             for scope in scope_arr:
                 for file in files:
-                    file_source = file['source']
-                    if file_source in scope:
-                        # print("file_source: " + file_source)
+                    file_scope = file['scope']
+                    if file_scope in scope:
+                        # print("file_scope: " + file_scope)
                         full_path = os.path.join(relative_path, file['file_name'])
                         # replace the file name with full path
                         file['file_name'] = full_path

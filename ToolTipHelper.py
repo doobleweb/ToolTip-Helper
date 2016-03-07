@@ -359,6 +359,10 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         location = {"start": None, "end": None}
         has_location = False
         count = 0
+       
+        if '</doc>' not in content[row-2]:
+                return False, {}
+                
         for i in reversed(range(row)): # instead of range(row, -1, -1):
             if '<doc>' in content[i]:
                location["start"] = i

@@ -1,4 +1,5 @@
 {
+	"debug": false,
 	"files":
 	[
 		{
@@ -10,7 +11,10 @@
 	"has_timeout": true,
 	"keyorder":
 	[
-
+		"method",
+		"description",
+		"parameters",
+		"return",
 	],
 	"max_width": 700,
 	"set_timeout": 10000

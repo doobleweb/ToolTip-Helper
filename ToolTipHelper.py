@@ -178,7 +178,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             names = self.get_file_names(results)
             # write logging to logger file
             if self.has_debug:
-                Utilities.write_logger(self.logger_msg)
+                # Utilities.write_logger(self.logger_msg)
+                print(self.logger_msg)
             # print("len results_arr: " + str(len(self.results_arr)))
             num_of_results = len(self.results_arr)
             if num_of_results == 1:

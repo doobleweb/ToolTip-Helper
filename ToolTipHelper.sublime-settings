@@ -1,11 +1,11 @@
 {
-	"debug": false,
+	"debug": true,
 	"files":
 	[
 		{
-			"file_name": "PythonSublime.sublime-tooltip",
+			"file_name": "PythonSublimeAPI.sublime-tooltip",
 			"link": "http://www.sublimetext.com/docs/3/api_reference.html",
-			"source": "source.python"
+			"scope": "source.python"
 		}
 	],
 	"has_timeout": true,
@@ -14,7 +14,7 @@
 		"method",
 		"description",
 		"parameters",
-		"return",
+		"return"
 	],
 	"max_width": 700,
 	"set_timeout": 10000

@@ -1,0 +1,772 @@
+{
+    "set_timeout": {
+    		"method":"set_timeout(callback, delay)",
+    		"description":"Runs the callback in the main thread after the given delay (in milliseconds). Callbacks with an equal delay will be run in the order they were added.",
+    		"return":"None"
+    		},
+    "set_async_timeout": {
+    		"method":"set_async_timeout(callback, delay)",
+    		"description":"Runs the callback on an alternate thread after the given delay (in milliseconds).",
+    		"return":"None"
+    		},
+    "status_message": {
+    		"method":"status_message(string)",
+    		"description":"Sets the message that appears in the status bar.",
+    		"return":"None"
+    		},
+    "error_message": {
+    		"method":"error_message(string)",
+    		"description":"Displays an error dialog to the user.", 
+    		"return":"None"
+    		},
+    "message_dialog": {
+    		"method":"message_dialog(string)",
+    		"description":"Displays a message dialog to the user.", 
+    		"return":"None"
+    		},
+    "ok_cancel_dialog": {
+    		"method":"ok_cancel_dialog(string, ok_title)",
+    		"description":"Displays an ok / cancel question dialog to the user. If ok_title is provided, this may be used as the text on the ok button. Returns True if the user presses the ok button.",
+    		"return":"bool"
+    		},
+    "ok_cancel_dialog": {
+    		"method":"ok_cancel_dialog(string, ok_title)",
+    		"description":"Displays an ok / cancel question dialog to the user. If ok_title is provided, this may be used as the text on the ok button. Returns True if the user presses the ok button.", 
+    		"return":"bool"
+    		},
+    "yes_no_cancel_dialog": {
+    		"method":"yes_no_cancel_dialog(string, yes_title, no_title)",
+    		"description":"Displays a yes / no / cancel question dialog to the user. If yes_title and/or no_title are provided, they will be used as the text on the corresponding buttons on some platforms. Returns sublime.DIALOG_YES, sublime.DIALOG_NO or sublime.DIALOG_CANCEL.",
+    		"return":"Int"
+    		},
+    "load_resource": {
+    		"method":"load_resource(name)",
+    		"description":"Loads the given resource. The name should be in the format Packages/Default/Main.sublime-menu.", 
+    		"return":"String"
+    		},
+    "load_binary_resource": {
+    		"method":"load_binary_resource(name)",
+    		"description":"Loads the given resource. The name should be in the format Packages/Default/Main.sublime-menu.", 
+    		"return":"bytes"
+    		},
+    "find_resources": {
+    		"method":"find_resources(pattern)",
+    		"description":"Finds resources whose file name matches the given pattern.", 
+    		"return":"[String]"
+    		},
+    "encode_value": {
+    		"method":"encode_value(value, pretty)",
+    		"description":"Encode a JSON compatible value into a string representation. If pretty is set to True, the string will include newlines and indentation.",
+    		"return":"String"
+    		},
+    "decode_value": {
+    		"method":"decode_value(string)",
+    		"description":"Decodes a JSON string into an object. If the string is invalid, a ValueError will be thrown.",
+    		"return":"value"
+    		},
+    "expand_variables": {
+    		"method":"expand_variables(value, variables)",
+    		"description":"Expands any variables in the string value using the variables defined in the dictionary variables. value may also be an array or dict, in which case the structure will be recursively expanded. Strings should use snippet syntax, for example: expand_variables(\"Hello, ${name}\", {\"name\": \"Foo\"})",
+    		"return":"value"
+    		},
+    "load_settings": {
+    		"method":"load_settings(base_name)",
+    		"description":"Loads the named settings. The name should include a file name and extension, but not a path. The packages will be searched for files matching the base name, and the results will be collated into the settings object. Subsequent calls to load_settings with the name base_name will return the same object, and not load the settings from disk again.",
+    		"return":"Settings"
+    		},
+    "save_settings": {
+    		"method":"save_settings(base_name)",
+    		"description":"Flushes any in-memory changes to the named settings object to disk.", 
+    		"return":"None"
+    		},
+    "windows": {
+    		"method":"windows()",
+    		"description":"Returns a list of all the open windows.", 
+    		"return":"[Window]"
+    		},
+    "active_window": {
+    		"method":"active_window()",
+    		"description":"Returns the most recently used window.", 
+    		"return":"Window"
+    		},
+    "packages_path": {
+    		"method":"packages_path()",
+    		"description":"Returns the base path to the packages.", 
+    		"return":"String"
+    		},
+    "installed_packages_path": {
+    		"method":"installed_packages_path()",
+    		"description":"Returns the path where all the user's *.sublime-package files are.", 
+    		"return":"String"
+    		},
+    "cache_path": {
+    		"method":"cache_path()",
+    		"description":"Returns the path where Sublime Text stores cache files.", 
+    		"return":"String"
+    		},
+    "get_clipboard": {
+    		"method":"get_clipboard(size_limit)",
+    		"description":"Returns the contents of the clipboard. size_limit is there to protect against unnecessarily large data, defaults to 16,777,216 characters",
+    		"return":"String"
+    		},
+    "set_clipboard": {
+    		"method":"set_clipboard(string)",
+    		"description":"Sets the contents of the clipboard.", 
+    		"return":"None"
+    		},
+    "score_selector": {
+    		"method":"score_selector(scope, selector)",
+    		"description":"Matches the selector against the given scope, returning a score. A score of 0 means no match, above 0 means a match. Different selectors may be compared against the same scope: a higher score means the selector is a better match for the scope.",
+    		"return":"Int"
+    		},
+    "run_command": {
+    		"method":"run_command(string, args)",
+    		"description":"Runs the named ApplicationCommand with the (optional) given arguments.", 
+    		"return":"None"
+    		},
+    "log_commands": {
+    		"method":"log_commands(flag)",
+    		"description":"Controls command logging. If enabled, all commands run from key bindings and the menu will be logged to the console.",
+    		"return":"None"
+    		},
+    "log_input": {
+    		"method":"log_input(flag)",
+    		"description":"Controls input logging. If enabled, all key presses will be logged to the console.",
+    		"return":"None"
+    		},
+    "log_result_regex": {
+    		"method":"log_result_regex(flag)",
+    		"description":"Controls result regex logging. This is useful for debugging regular expressions used in build systems.",
+    		"return":"None"
+    		},
+    "version": {
+    		"method":"version()",
+    		"description":"Returns the version number", 
+    		"return":"String"
+    		},
+    "platform": {
+    		"method":"platform()",
+    		"description":"Returns the platform, which may be osx, \"linux\" or \"windows\"", 
+    		"return":"String"
+    		},
+    "arch": {
+    		"method":"arch()",
+    		"description":"Returns the CPU architecture, which may be \"x32\" or \"x64\"",
+    		"return":"String"
+    		},
+    "id":
+			{
+				"method":"id()",
+				"return":"int",
+				"description":"Returns a number that uniquely identifies this view."
+			},
+			"buffer_id":
+			{
+				"method":"buffer_id()",
+				"return":"int",
+				"description":"Returns a number that uniquely identifies the buffer underlying this view."
+			},
+			"file_name":
+			{
+				"method":"file_name()",
+				"return":"String",
+				"description":"The full name file the file associated with the buffer, or None if it doesn't exist on disk."
+			},
+			"name":
+			{
+				"method":"name()",
+				"return":"String",
+				"description":"The name assigned to the buffer, if any"
+			},
+			"set_name":
+			{
+				"method":"set_name(name)",
+				"return":"None",
+				"description":"Assigns a name to the buffer"
+			},
+			"is_loading":
+			{
+				"method":"is_loading()",
+				"return":"bool",
+				"description":"Returns true if the buffer is still loading from disk, and not ready for use."
+			},
+			"is_dirty":
+			{
+				"method":"is_dirty()",
+				"return":"bool",
+				"description":"Returns true if there are any unsaved modifications to the buffer."
+			},
+			"is_read_only":
+			{
+				"method":"is_read_only()",
+				"return":"bool",
+				"description":"Returns true if the buffer may not be modified."
+			},
+			"set_read_only":
+			{
+				"method":"set_read_only(value)",
+				"return":"None",
+				"description":"Sets the read only property on the buffer."
+			},
+			"is_scratch":
+			{
+				"method":"is_scratch()",
+				"return":"bool",
+				"description":"Returns true if the buffer is a scratch buffer. Scratch buffers never report as being dirty."
+			},
+			"set_scratch":
+			{
+				"method":"set_scratch(value)",
+				"return":"None",
+				"description":"Sets the scratch property on the buffer."
+			},
+			"settings":
+			{
+				"method":"settings()",
+				"return":"Settings",
+				"description":"Returns a reference to the views settings object. Any changes to this settings object will be private to this view."
+			},
+			"window":
+			{
+				"method":"window()",
+				"return":"Window",
+				"description":"Returns a reference to the window containing the view."
+			},
+			"run_command":
+			{
+				"method":"run_command(string, args)",
+				"return":"None",
+				"description":"Runs the named TextCommand with the (optional) given arguments."
+			},
+			"size":
+			{
+				"method":"size()",
+				"return":"int",
+				"description":"Returns the number of character in the file."
+			},
+			"substr":
+			[
+				{
+					"method":"substr(region)",
+					"return":"String",
+					"description":"Returns the character to the right of the point.",
+					"link":"www.walla.co.il"
+				}, 
+				{
+					"method":"substr(point)",
+					"return":"test",
+					"description":"test.",
+					"link":"www.test.co.il"
+				}
+			],
+			"insert":
+			{
+				"method":"insert(edit, point, string)",
+				"return":"int",
+				"description":"Inserts the given string in the buffer at the specified point. Returns the number of characters inserted: this may be different if tabs are being translated into spaces in the current buffer."
+			},
+			"erase":
+			{
+				"method":"erase(edit, region)",
+				"return":"None",
+				"description":"Erases the contents of the region from the buffer."
+			},"replace":
+			{
+				"method":"replace(edit, region, string)",
+				"return":"None",
+				"description":"Replaces the contents of the region with the given string."
+			},
+			"sel":
+			{
+				"method":"sel()",
+				"return":"Selection",
+				"description":"Returns a reference to the selection."
+			},
+			"line":
+			{
+				"method":"line(point)",
+				"return":"Region",
+				"description":"Returns the line that contains the point."
+			},
+			"full_line":
+			{
+				"method":"full_line(point)",
+				"return":"Region",
+				"description":"As line(), but the region includes the trailing newline character, if any."
+			},
+			"full_line":
+			{
+				"method":"full_line(region)",
+				"return":"Region",
+				"description":"As line(), but the region includes the trailing newline character, if any."
+			},
+			"lines":
+			{
+				"method":"lines(region)",
+				"return":"[Region]",
+				"description":"Returns a list of lines (in sorted order) intersecting the region."
+			},
+			"split_by_newlines":
+			{
+				"method":"split_by_newlines(region)",
+				"return":"[Region]",
+				"description":"Splits the region up such that each region returned exists on exactly one line."
+			},
+			"word":
+			{
+				"method":"word(point)",
+				"return":"Region",
+				"description":"Returns the word that contains the point."
+			},
+			"find_by_class":
+			{
+				"method":"find_by_class(point, forward, classes, separators)",
+				"return":"Region",
+				"description":"Finds the next location after point that matches the given classes. If forward is False, searches backwards instead of forwards. classes is a bitwise OR of the sublime.CLASS_XXX flags. separators may be passed in, to define what characters should be considered to separate words."
+			},
+			"expand_by_class":
+			{
+				"method":"expand_by_class(point, classes, separators)",
+				"return":"Region",
+				"description":"Expands point to the left and right, until each side lands on a location that matches classes. classes is a bitwise OR of the sublime.CLASS_XXX flags. separators may be passed in, to define what characters should be considered to separate words."
+			},
+			"find":
+			{
+				"method":"find(pattern, fromPosition, flags)",
+				"return":"Region",
+				"description":"Returns the first Region matching the regex pattern, starting from the given point, or None if it can't be found. The optional flags parameter may be sublime.LITERAL, sublime.IGNORECASE, or the two ORed together."
+			},
+			"find_all":
+			{
+				"method":"find_all(pattern, flags, format, extractions)",
+				"return":"[Region]",
+				"description":"Returns all (non-overlapping) regions matching the regex pattern. The optional flags parameter may be sublime.LITERAL, sublime.IGNORECASE, or the two ORed together. If a format string is given, then all matches will be formatted with the formatted string and placed into the extractions list."
+			},
+			"rowcol":
+			{
+				"method":"rowcol(point)",
+				"return":"(int, int)",
+				"description":"Calculates the 0 based line and column numbers of the point."
+			},
+			"text_point":
+			{
+				"method":"text_point(row, col)",
+				"return":"int",
+				"description":"Calculates the character offset of the given, 0 based, row and column. Note that 'col' is interpreted as the number of characters to advance past the beginning of the row."
+			},
+			"set_syntax_file":
+			{
+				"method":"set_syntax_file(syntax_file)",
+				"return":"None",
+				"description":"Changes the syntax used by the view. ttsyntax_file/tt should be a name along the lines of ttPackages/Python/Python.tmLanguage/tt. To retrieve the current syntax, use ttview.settings().get('syntax')./tt"
+			},
+			"extract_scope":
+			{
+				"method":"extract_scope(point)",
+				"return":"Region",
+				"description":"Returns the extent of the syntax name assigned to the character at the given point."
+			},
+			"scope_name":
+			{
+				"method":"scope_name(point)",
+				"return":"String",
+				"description":"Returns the syntax name assigned to the character at the given point."
+			},
+			"score_selector":
+			{
+				"method":"score_selector(point, selector)",
+				"return":"Int",
+				"description":"Matches the selector against the scope at the given location, returning a score. A score of 0 means no match, above 0 means a match. Different selectors may be compared against the same scope: a higher score means the selector is a better match for the scope."
+			},
+			"find_by_selector":
+			{
+				"method":"find_by_selector(selector)",
+				"return":"[Regions]",
+				"description":"Finds all regions in the file matching the given selector, returning them as a list."
+			},
+			"show":
+			{
+				"method":"show(point, show_surrounds)",
+				"return":"None",
+				"description":"Scroll the view to show the given point."
+			},
+			"show_at_center":
+			{
+				"method":"show_at_center(point)",
+				"return":"None",
+				"description":"Scroll the view to center on the point."
+			},
+			"visible_region":
+			{
+				"method":"visible_region()",
+				"return":"Region",
+				"description":"Returns the currently visible area of the view."
+			},
+			"viewport_position":
+			{
+				"method":"viewport_position()",
+				"return":"Vector",
+				"description":"Returns the offset of the viewport in layout coordinates."
+			},
+			"set_viewport_position":
+			{
+				"method":"set_viewport_position(vector, animate)",
+				"return":"None",
+				"description":"Scrolls the viewport to the given layout position."
+			},
+			"viewport_extent":
+			{
+				"method":"viewport_extent()",
+				"return":"vector",
+				"description":"Returns the width and height of the viewport."
+			},
+			"layout_extent":
+			{
+				"method":"layout_extent()",
+				"return":"vector",
+				"description":"Returns the width and height of the layout."
+			},
+			"text_to_layout":
+			{
+				"method":"text_to_layout(point)",
+				"return":"vector",
+				"description":"Converts a text position to a layout position"
+			},
+			"layout_to_text":
+			{
+				"method":"layout_to_text(vector)",
+				"return":"point",
+				"description":"Converts a layout position to a text position"
+			},
+			"window_to_layout":
+			{
+				"method":"window_to_layout(vector)",
+				"return":"vector",
+				"description":"Converts a window position to a layout position"
+			},
+			"window_to_text":
+			{
+				"method":"window_to_text(vector)",
+				"return":"point",
+				"description":"Converts a window position to a text position"
+			},
+			"line_height":
+			{
+				"method":"line_height()",
+				"return":"real",
+				"description":"Returns the light height used in the layout"
+			},
+			"em_width":
+			{
+				"method":"em_width()",
+				"return":"real",
+				"description":"Returns the typical character width used in the layout"
+			},
+			"get_regions":
+			{
+				"method":"get_regions(key)",
+				"return":"[regions]",
+				"description":"Return the regions associated with the given key, if any"
+			},
+			"erase_regions":
+			{
+				"method":"erase_regions(key)",
+				"return":"None",
+				"description":"Removed the named regions"
+			},
+			"set_status":
+			{
+				"method":"set_status(key, value)",
+				"return":"None",
+				"description":"Adds the status key to the view. The value will be displayed in the status bar, in a comma separated list of all status values, ordered by key. Setting the value to the empty string will clear the status."
+			},
+			"get_status":
+			{
+				"method":"get_status(key)",
+				"return":"String",
+				"description":"Returns the previously assigned value associated with the key, if any."
+			},
+			"erase_status":
+			{
+				"method":"erase_status(key)",
+				"return":"None","description":"Clears the named status."
+			},
+			"command_history":
+			{
+				"method":"command_history(index, modifying_only)",
+				"return":"(String,Dict,int)",
+				"description":"Returns the command name, command arguments, and repeat count for the given history entry, as stored in the undo / redo stack.\n\npIndex 0 corresponds to the most recent command, -1 the command before that, and so on. Positive values for index indicate to look in the redo stack for commands. If the undo / redo history doesn't extend far enough, then (None, None, 0) will be returned.\n\n/ppSetting modifying_only to True (the default is False) will only return entries that modified the buffer./p"
+			},
+			"change_count":
+			{
+				"method":"change_count()",
+				"return":"int",
+				"description":"Returns the current change count. Each time the buffer is modified, the change count is incremented. The change count can be used to determine if the buffer has changed since the last it was inspected."
+			},
+			"fold":
+			{
+				"method":"fold([regions])",
+				"return":"bool",
+				"description":"Folds the given regions, returning False if they were already folded"
+			},
+			"unfold":
+			{
+				"method":"unfold(region)",
+				"return":"[regions]",
+				"description":"Unfolds all text in the region, returning the unfolded regions"
+			},
+			"encoding":
+			{
+				"method":"encoding()",
+				"return":"String",
+				"description":"Returns the encoding currently associated with the file"
+			},
+			"set_encoding":
+			{
+				"method":"set_encoding(encoding)",
+				"return":"None",
+				"description":"Applies a new encoding to the file. This encoding will be used the next time the file is saved."
+			},
+			"line_endings":
+			{
+				"method":"line_endings()",
+				"return":"String",
+				"description":"Returns the line endings used by the current file."
+			},
+			"set_line_endings":
+			{
+				"method":"set_line_endings(line_endings)",
+				"return":"None",
+				"description":"Sets the line endings that will be applied when next saving."
+			},
+			"overwrite_status":
+			{
+				"method":"overwrite_status()",
+				"return":"Bool",
+				"description":"Returns the overwrite status, which the user normally toggles via the insert key."
+			},
+			"set_overwrite_status":
+			{
+				"method":"set_overwrite_status(enabled)",
+				"return":"None",
+				"description":"Sets the overwrite status."
+			},
+			"symbols":
+			{
+				"method":"symbols(line_endings)",
+				"return":"[(Region, String)]",
+				"description":"Extract all the symbols defined in the buffer."
+			},
+			"show_popup_menu":
+			{
+				"method":"show_popup_menu(items, on_done, flags)",
+				"return":"None",
+				"description":"Shows a pop up menu at the caret, to select an item in a list. on_done will be called once, with the index of the selected item. If the pop up menu was cancelled, on_done will be called with an argument of -1.\n\npItems is an array of strings./p\n\npFlags currently only has no option./p\n"
+			},
+			"classify":
+			{
+				"method":"classify(point)",
+				"return":"int",
+				"description":"Classifies pt, returning a bitwise OR of zero or more of these flags:(CLASS_WORD_START, CLASS_WORD_END, CLASS_PUNCTUATION_START, CLASS_PUNCTUATION_END, CLASS_SUB_WORD_START, CLASS_SUB_WORD_END, CLASS_LINE_START, CLASS_LINE_END, CLASS_EMPTY_LINE)"
+			},
+			"add_regions":
+			{
+				"method":"add_regions(key, [regions], scope, icon, flags)",
+				"return":"[(Region, String)]",
+				"description":"Add a set of regions to the view. If a set of regions already exists with the given key, they will be overwritten. The scope is used to source a color to draw the regions in, it should be the name of a scope, such as \"comment\" or \"string\". If the scope is empty, the regions won't be drawn.The optional icon name, if given, will draw the named icons in the gutter next to each region. The icon will be tinted using the color associated with the scope. Valid icon names are dot, circle, bookmark and cross. The icon name may also be a full package relative path, such as Packages/Theme - Default/dot.png."
+			},
+			"id":
+			{
+				"method":"id()",
+				"return":"int",
+				"description":"Returns a number that uniquely identifies this window."
+			},
+			"new_file":
+			{
+				"method":"new_file()",
+				"return":"View",
+				"description":"Creates a new file. The returned view will be empty, and its is_loaded method will return True."
+			},
+			"find_open_file":
+			{
+				"method":"find_open_file(file_name)",
+				"return":"View",
+				"description":"Finds the named file in the list of open files, and returns the corresponding View, or None if no such file is open.\n"
+			},
+			"active_view":
+			{
+				"method":"active_view()",
+				"return":"View",
+				"description":"Returns the currently edited view."
+			},
+			"active_view_in_group":
+			{
+				"method":"active_view_in_group(group)",
+				"return":"View",
+				"description":"Returns the currently edited view in the given group."
+			},
+			"views":
+			{
+				"method":"views()",
+				"return":"[View]",
+				"description":"Returns all open views in the window."
+			},
+			"views_in_group":
+			{
+				"method":"views_in_group(group)",
+				"return":"[View]",
+				"description":"Returns all open views in the given group."
+			},
+			"num_groups":
+			{
+				"method":"num_groups()",
+				"return":"int",
+				"description":"Returns the number of view groups in the window."
+			},
+			"active_group":
+			{
+				"method":"active_group()",
+				"return":"int",
+				"description":"Returns the index of the currently selected group."
+			},
+			"focus_group":
+			{
+				"method":"focus_group(group)",
+				"return":"None",
+				"description":"Makes the given group active."
+			},
+			"focus_view":
+			{
+				"method":"focus_view(view)",
+				"return":"None",
+				"description":"Switches to the given view."
+			},
+			"get_view_index":
+			{
+				"method":"get_view_index(view)",
+				"return":"(group, index)",
+				"description":"Returns the group, and index within the group of the view. Returns -1 if not found."
+			},
+			"set_view_index":
+			{
+				"method":"set_view_index(view, group, index)",
+				"return":"None",
+				"description":"Moves the view to the given group and index."
+			},
+			"is_sidebar_visible":
+			{
+				"method":"is_sidebar_visible()",
+				"return":"bool",
+				"description":"Returns true if the sidebar will be shown when contents are available."
+			},
+			"set_sidebar_visible":
+			{
+				"method":"set_sidebar_visible(flag)",
+				"return":"None",
+				"description":"Sets the sidebar to be shown or hidden when contents are available."
+			},
+			"folders":
+			{
+				"method":"folders()",
+				"return":"[String]",
+				"description":"Returns a list of the currently open folders."
+			},
+			"project_file_name":
+			{
+				"method":"project_file_name()",
+				"return":"String",
+				"description":"Returns name of the currently opened project file, if any."
+			},
+			"project_data":
+			{
+				"method":"project_data()",
+				"return":"Dictionary",
+				"description":"Returns the project data associated with the current window. The data is in the same format as the contents of a .sublime-project file.\n"
+			},
+			"set_project_data":
+			{
+				"method":"set_project_data(data)",
+				"return":"None",
+				"description":"Updates the project data associated with the current window. If the window is associated with a .sublime-project file, the project file will be updated on disk, otherwise the window will store the data internally."
+			},
+			"run_command":
+			{
+				"method":"run_command(string, args)",
+				"return":"None",
+				"description":"Runs the named Command with the (optional) given arguments. Window.run_command is able to run both any sort of command, dispatching the command via input focus."
+			},
+			"show_quick_panel":
+			{
+				"method":"show_quick_panel(items, on_done, flags, selected_index, on_highlighted)",
+				"return":"None",
+				"description":"Shows a quick panel, to select an item in a list. on_done will be called once, with the index of the selected item. If the quick panel was cancelled, on_done will be called with an argument of -1.Items may be an array of strings, or an array of string arrays. In the latter case, each entry in the quick panel will show multiple rows.Flags is a bitwise OR of sublime.MONOSPACE_FONT and sublime.KEEP_OPEN_ON_FOCUS_LOST on_highlighted, if given, will be called every time the highlighted item in the quick panel is changed."
+			},
+			"show_input_panel":
+			{
+				"method":"show_input_panel(caption, initial_text, on_done, on_change, on_cancel)",
+				"return":"View",
+				"description":"Shows the input panel, to collect a line of input from the user. on_done and on_change, if not None, should both be functions that expect a single string argument. on_cancel should be a function that expects no arguments. The view used for the input widget is returned."
+			},
+			"create_output_panel":
+			{
+				"method":"create_output_panel(name, unlisted)",
+				"return":"View",
+				"description":"Returns the view associated with the named output panel, creating it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix.The optional unlisted parameter is a boolean to control if the output panel should be listed in the panel switcher."
+			},
+			"find_output_panel":
+			{
+				"method":"find_output_panel(name)",
+				"return":"View or None",
+				"description":"Returns the view associated with the named output panel, or None if the output panel does not exist."
+			},
+			"destroy_output_panel":
+			{
+				"method":"destroy_output_panel(name)",
+				"return":"None",
+				"description":"Destroys the named output panel, hiding it if currently open."
+			},
+			"active_panel":
+			{
+				"method":"active_panel()",
+				"return":"string or None",
+				"description":"Returns the name of the currently open panel, or None if no panel is open. Will return built-in panel names (e.g. \"console\", \"find\", etc) in addition to output panels."
+			},
+			"panels":
+			{
+				"method":"panels()",
+				"return":"[string]",
+				"description":"Returns a list of the names of all panels that have not been marked as unlisted. Includes certain built-in panels in addition to output panels."
+			},
+			"create_output_panel":
+			{
+				"method":"create_output_panel(name)",
+				"return":"View",
+				"description":"Returns the view associated with the named output panel, created it if required. The output panel can be shown by running the show_panel window command, with the panel argument set to the name with an \"output.\" prefix."
+			},
+			"lookup_symbol_in_index":
+			{
+				"method":"lookup_symbol_in_index(symbol)",
+				"return":"[Location]",
+				"description":"Returns all locations where the symbol is defined across files in the current project."
+			},
+			"lookup_symbol_in_open_files":
+			{
+				"method":"lookup_symbol_in_open_files(symbol)",
+				"return":"[Location]",
+				"description":"Returns all locations where the symbol is defined across open files."
+			},
+			"extract_variables":
+			{
+				"method":"extract_variables()",
+				"return":"Dictionary",
+				"description":"Returns a dictionary of strings populated with contextual keys: packages, platform, file, file_path, file_name, file_base_name, file_extension, folder, project, project_path, project_name, project_base_name, project_extension. This dictionary is suitable for passing to sublime.expand_variables()."
+			},
+			"open_file":
+			{
+				"method":"open_file(file_name, flags)",
+				"return":"View",
+				"description":"Opens the named file, and returns the corresponding view. If the file is already opened, it will be brought to the front. Note that as file loading is asynchronous, operations on the returned view won't be possible until its is_loading() method returns False."
+			}
+}
+
+

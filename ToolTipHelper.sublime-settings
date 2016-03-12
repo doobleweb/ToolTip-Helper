@@ -1,5 +1,5 @@
 {
-	"debug": true,
+	"debug": false,
 	"files":
 	[
 		{
@@ -14,7 +14,8 @@
 		"method",
 		"description",
 		"parameters",
-		"return"
+		"return",
+		"link"
 	],
 	"max_width": 700,
 	"set_timeout": 10000

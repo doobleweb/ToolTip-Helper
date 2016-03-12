@@ -53,7 +53,7 @@ Some important things about file format:
 <b>For Dynamic doc:</b>
 
 - Choose a function.
--  Write <doc></doc> tag streight above the function.
+-  Write doc tag streight above the function.
 - Add some attributes between the tag when each key and value separated by a colon.
 
 

@@ -59,6 +59,13 @@ Some important things about file format:
 
 <img src="http://s30.postimg.org/69jhxq6wh/dynamic.png" alt="sublime api">
 
+<b>Note:</b> in case we have more than one documentation for function name, a quick panel will open with list of results.
+Each result show with row number and name of the file, when chosing result the tooltip window get opened.
+You can run the tooltip again and the last result you pick up will be highlighted.
+
+<img src="http://s29.postimg.org/9qlvlsdsn/image.png" alt="sublime api">
+
+
 ## Setup
 
 Make sure you have <a href="https://packagecontrol.io/installation" alt="packagecontrol">Package Control</a> before continue (you can still download ZIP of the project from GitHub if you don't want to install package control, but its not recommended).

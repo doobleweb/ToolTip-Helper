@@ -30,11 +30,11 @@ Works on every language (include custom languages).
 There are two ways to create documentation: <u>Built-in files</u> & <u>Dynamic doc</u>.
 
 <b>For Built-in files:</b>
-<ol>
+<ul>
   <li>Make sure you have in packages ToolTipHelper\db folder.<li>
   <li>Create <code>languageName.sublime-tooltip</code> (JSON file) in this folder.</li>
   <li>Declare on this file in settings with his scope name</li>
-</ol>
+</ul>
 
 Once you create <code>languageName.sublime-tooltip</code> and declare on him, the tooltip knows to search for documentation and take the data from there and shows popup window.
 This file contain every attribute name that you want show up in the tooltip window. For example attributes names for function can be: method name, parameters, description and return value.
@@ -51,11 +51,11 @@ Some important things about file format:
 <img src="http://s29.postimg.org/9vvxfurtz/rules.png" alt="sublime api">
 
 <b>For Dynamic doc:</b>
-<ol>
-  <li>Choose a function.<li>
-  <li>Write <doc></doc> tag streight above the function.<li>
-  <li>Add some attributes between the tag when each key and value separated by a colon.</li>
-</ol>
+
+- Choose a function.
+-  Write <doc></doc> tag streight above the function.
+- Add some attributes between the tag when each key and value separated by a colon.
+
 
 <img src="http://s30.postimg.org/69jhxq6wh/dynamic.png" alt="sublime api">
 

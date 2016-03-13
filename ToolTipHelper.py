@@ -166,7 +166,6 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             sublime.status_message("scope: %s" % current_scope)
             # get user selection in string
             sel = self.get_user_selection(sel)
-            # print("scope: " + current_scope)
             tooltip_files_arr = self.get_tooltip_files(current_scope)
             # do match with user selection and return the result
             results = self.match_selection(sel, tooltip_files_arr, current_scope)
@@ -225,7 +224,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             path, extension = os.path.splitext(name['file_name'])
             file_name = os.path.basename(path)
             # name_regex = r"(.+)\.[sublime\-tooltip|" + re.escape(extension) + r"]+"
-            names.append(str(count) + '. ' + file_name)
+            names.append(str(count) + '. ' + file_name + extension)
         return names
 
     def has_link(self, result):
@@ -526,6 +525,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     break
             if not has_files:
                 self.logger_msg += 'There is no file with scope from the files list that match to the current scope\n'                
+        # print(tooltip_files)
         return tooltip_files
         
     def get_immediate_files(self):

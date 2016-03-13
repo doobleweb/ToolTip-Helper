@@ -123,7 +123,7 @@ class EnterDataCommand(sublime_plugin.WindowCommand):
             sublime.status_message("the changes was saved!")
         except Exception as e:
             sublime.status_message("cannot save the changes")            
-      
+
 
 class ToolTipHelperCommand(sublime_plugin.TextCommand):
     """This class represent tooltip window for showing documentation """
@@ -169,7 +169,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             # print("scope: " + current_scope)
             tooltip_files_arr = self.get_tooltip_files(current_scope)
             # do match with user selection and return the result
-            results = self.match_selection(sel, tooltip_files_arr)
+            results = self.match_selection(sel, tooltip_files_arr, current_scope)
             for result in results:
                 # get the correct link if there is 
                 link = self.has_link(result)
@@ -295,11 +295,11 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         get_word_str = self.view.substr(get_word)
         return get_word_str.strip()
 
-    def match_selection(self, sel, tooltip_files):
+    def match_selection(self, sel, tooltip_files, scope):
         """ this method take care to the results, links and the keys which be implemented in the tooltip """
         results = []
         count = 0
-        dynamic_doc_arr = self.search_for_dynamic_doc(sel)
+        dynamic_doc_arr = self.search_for_dynamic_doc(sel, scope)
         if dynamic_doc_arr:
             results += dynamic_doc_arr
         else:
@@ -333,14 +333,13 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             self.save_keyorder_list()
         return results
 
-    def search_for_dynamic_doc(self, sel):
+    def search_for_dynamic_doc(self, sel, scope):
         results = sublime.active_window().lookup_symbol_in_index(sel)
         if not results:
             return []
 
         jsons = []
         count = 0
-
         for result in results:
             # get file path
             file_name = result[0]
@@ -348,6 +347,11 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             # in case we have a broken path
             if ':' not in splited_file_name[1]:
                 file_name = self.fix_broken_path(splited_file_name)
+            # get the file extension
+            filename, file_extension = os.path.splitext(file_name)
+            # in case the scope is not valid
+            if file_extension not in scope:
+                continue
             # get row number
             row = result[2][0]
             content = self.get_file_content(file_name)

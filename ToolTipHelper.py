@@ -206,7 +206,9 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                                                         self.last_index)
             else:
                 self.show_tooltip_popup("documentation not exist")
-
+    # <doc>
+    # des: pp
+    # </doc>
     def is_enabled(self):
         """ this method check if the plugin is runnable"""
         # in case we have more than one cursor
@@ -429,8 +431,11 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     last_key = key
                     last_value = value
             except Exception as e:
-                continued_line = re.match(r"\s*[~!@#$%^&*?<>()\s]*\s*(.+)\s*", line.strip()).groups(0)[0].strip()
-                dic[last_key] = last_value + " " + continued_line
+                try:
+                    continued_line = re.match(r"\s*[~!@#$%^&*?<>()\s]*\s*(.+)\s*", line.strip()).groups(0)[0].strip()
+                    dic[last_key] = last_value + " " + continued_line
+                except Exception as e:
+                    pass
         return dic
     
     def match(self, result):

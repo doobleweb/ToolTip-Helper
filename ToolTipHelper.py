@@ -417,13 +417,14 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         end = location['end']
         # remove new lines & tabs
         formated_content = [content[i].rstrip().replace('\t', "") for i in range(start+1, end)]
-        line_regex = r"\s*[~!@#$%^&*?<>()\s]*\s*(\w+)\s*\:\s*(.+)"
+        line_regex = r"\s*[/\\~!@#$%^&*?<>()\s]*\s*(\w+)\s*\:\s*(.+)"
         dic = {}
         last_key = ""
         last_value = ""
         for line in formated_content:
             try:
                 groups = re.match(line_regex, line.strip()).groups()
+                print("groups: " + str(groups))
                 if groups:
                     key = groups[0].strip()
                     value = groups[1].strip()
@@ -431,6 +432,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     last_key = key
                     last_value = value
             except Exception as e:
+                print("exception")
                 try:
                     continued_line = re.match(r"\s*[~!@#$%^&*?<>()\s]*\s*(.+)\s*", line.strip()).groups(0)[0].strip()
                     dic[last_key] = last_value + " " + continued_line

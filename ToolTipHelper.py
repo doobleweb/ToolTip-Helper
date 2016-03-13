@@ -424,7 +424,6 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         for line in formated_content:
             try:
                 groups = re.match(line_regex, line.strip()).groups()
-                print("groups: " + str(groups))
                 if groups:
                     key = groups[0].strip()
                     value = groups[1].strip()
@@ -432,7 +431,6 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     last_key = key
                     last_value = value
             except Exception as e:
-                print("exception")
                 try:
                     continued_line = re.match(r"\s*[~!@#$%^&*?<>()\s]*\s*(.+)\s*", line.strip()).groups(0)[0].strip()
                     dic[last_key] = last_value + " " + continued_line

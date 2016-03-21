@@ -18,5 +18,23 @@
 		"link"
 	],
 	"max_width": 700,
-	"set_timeout": 10000
+	"set_timeout": 10000,
+	"css": 
+	{
+		"title": 
+		{
+			"color": "green",
+			"text-decoration": "underline"
+		},
+		"content":
+		{
+			"color": "red",
+			"text-decoration": "none"
+		},
+        "link":
+        {
+        	"color": "blue",
+			"text-decoration": "underline"
+		}
+	}
 }

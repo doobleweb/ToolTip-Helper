@@ -1,14 +1,21 @@
 {
+	// set debug to true for print info & error messege.
 	"debug": false,
+	// file_name: each file in this array should be exist in 'Tooltip-Helper' folder with the correct file name.
+	// link (optional): in case you want to add link for documentation website.
+	// scope:  must to be valid, so in case you dont know what is the current scope press ctrl+alt+shift+p or
+	// search in scopes.txt file.
 	"files":
 	[
 		{
-			"file_name": "PythonSublimeAPI.sublime-tooltip",
+			"file_name": "PythonSublime.sublime-tooltip",
 			"link": "http://www.sublimetext.com/docs/3/api_reference.html",
 			"scope": "source.python"
 		}
 	],
+	// set timeout to false if you dont want that the tooltip window close.
 	"has_timeout": true,
+	// set key order which determine the order of attributes in tooltip window.
 	"keyorder":
 	[
 		"method",
@@ -17,8 +24,11 @@
 		"return",
 		"link"
 	],
+	// set the width of tooltip window.
 	"max_width": 700,
+	// set the timeout of tooltip window in milliseconds.
 	"set_timeout": 10000,
+	// set css to tooltip
 	"css": 
 	{
 		"title": 

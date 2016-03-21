@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 class Utilities():
     """This class represent utilities for the plugin"""
     @staticmethod
-    def result_format(json, keyorder, link, location="", file_name=""):
+    def result_format(json, keyorder, link, style, location="", file_name=""):
         message = ""
 
         if keyorder:
@@ -29,20 +29,22 @@ class Utilities():
             except Exception as e:
                 print(e)
                 ordered_result = []
-            message = Utilities.get_html_from_list(ordered_result)
+            message = Utilities.get_html_from_list(ordered_result, style)
         else:
             message = Utilities.get_html_from_dictionary(json)
         # add helper link if there is one
         if link:
-            message += '<a style="color: white;" href=\"%s\">See more</a>' % link
+            # message += '<a style="color: white;" href=\"%s\">See more</a>' % link
+            message += '<a href=\"%s\" style=\"%s\">See more</a>' % (link, style['link'])
         if location and file_name:
             row = location[0]
             col = location[1]
-            message += '<br><a style="color: white;" href=\"%s\">Go To Document</a>' % (file_name + '$$$' + str(row) + ',' + str(col))  
+            # message += '<br><a style="color: white;" href=\"%s\">Go To Document</a>' % (file_name + '$$$' + str(row) + ',' + str(col))
+            message += '<br><a href=\"%s\" style=\"%s\">Go To Document</a>' % ((file_name + '$$$' + str(row) + ',' + str(col)), style['link'])  
         return message
 
     @staticmethod
-    def get_html_from_list(ordered_result):
+    def get_html_from_list(ordered_result, style):
         # print(ordered_result)
         message = ""
         for item in ordered_result:
@@ -56,7 +58,8 @@ class Utilities():
                     for item in value:
                         str_val += item + '<br>'
                     value = str_val
-                message += '<b><u>' + key + ':</u></b><br>' + value + " <br><br>"
+                # message += '<b><u>' + key + ':</u></b><br>' + value + " <br><br>"
+                message += '<span style=\" ' + style['title'] + '\"><b>' + key + ':</b></span><br>' + '<span style=\"' + style['content'] + '\">' + value + '</span>' + " <br><br>"
         return message
 
     @staticmethod
@@ -133,6 +136,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         self.view = view
         self.settings = sublime.load_settings('ToolTipHelper.sublime-settings')
         self.files = self.settings.get("files")
+        self.style = self.get_css_style()
         self.keyorder = self.get_keyorder()
         self.set_timeout = self.get_timeout()
         self.max_width = self.get_max_width()
@@ -179,13 +183,15 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                     file_name = result['file_name']
                     html_tooltip = Utilities.result_format(result['json_result'], 
                                                             self.keyorder, 
-                                                            link, 
+                                                            link,
+                                                            self.style, 
                                                             location, 
                                                             file_name)
                 else:
                     html_tooltip = Utilities.result_format(result['json_result'], 
                                                             self.keyorder, 
-                                                            link)
+                                                            link,
+                                                            self.style)
                 # edit the result in html for tooltip window
                 self.results_arr.append(html_tooltip)
             # this names will be in the output panel
@@ -585,6 +591,17 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
             max_width = 350
         return max_width
 
+    def get_css_style(self):
+        try:
+            value = self.settings.get("css")
+            style = {'title': 'color: ' + value['title']['color'] + '; text-decoration: ' + value['title']['text-decoration'],
+                    'content': 'color: ' + value['content']['color'] + '; text-decoration: ' + value['content']['text-decoration'],
+                    'link': 'color: ' + value['link']['color'] + '; text-decoration: ' + value['link']['text-decoration']}
+        except Exception:
+            style = {'title': 'color: white; text-decoration: underline',
+                    'content': 'color: white; text-decoration: none',
+                    'link': 'color: white; text-decoration: underline'}
+        return style
 
 
 """Credit to: https://github.com/huot25/StyledPopup"""
@@ -600,6 +617,8 @@ def show_popup(view, content, *args, **kwargs):
     color_scheme = view.settings().get("color_scheme")
 
     style_sheet = manager.get_stylesheet(color_scheme)["content"]
+    # print(style_sheet)
+    # style_sheet = ".title {color: yellow; text-decoration: underline;}"
 
     html = "<html><body>"
     html += "<style>%s</style>" % (style_sheet)

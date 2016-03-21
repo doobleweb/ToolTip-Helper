@@ -33,18 +33,18 @@
 	{
 		"title": 
 		{
-			"color": "green",
+			"color": "white",
 			"text-decoration": "underline"
 		},
 		"content":
 		{
-			"color": "red",
+			"color": "white",
 			"text-decoration": "none"
 		},
-        "link":
-        {
-        	"color": "blue",
+	        "link":
+	        {
+	        	"color": "white",
 			"text-decoration": "underline"
+			}
 		}
-	}
 }

@@ -1,6 +1,7 @@
 # ToolTip-Helper
 
 Author: Idan Avitan
+
 Credit to: Dooble
 
 This plugin shows tooltip under the cursor when on function name in sublime text 3.

@@ -8,7 +8,7 @@
 	"files":
 	[
 		{
-			"file_name": "PythonSublime.sublime-tooltip",
+			"file_name": "PythonSublimeAPI.sublime-tooltip",
 			"link": "http://www.sublimetext.com/docs/3/api_reference.html",
 			"scope": "source.python"
 		}

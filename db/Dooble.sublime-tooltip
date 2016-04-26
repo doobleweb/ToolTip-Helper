@@ -10,7 +10,7 @@
     "examples": "$text.singular('cars'); // output: 'car'\n$text.singular('potatoes'); // output: 'potato'\n$text.singular('women'); // output: 'woman'\n$text.singular('fries'); // output: 'fry'"
   },
   "generateCode": {
-    "method": "$text.singular(settings)",
+    "method": "$text.singular(generateCode)",
     "description": "Generate a randomized string according to the settings object.",
     "parameters": "settings - an setting object with the following:\n\t\t\t\t\tlength (number required) - The length of the given string (includes the length of the prefix and the suffix),\n\t\t\t\t\ttype  (string required) - The type of characters to form the string. \nThe options are “Letters”, “UpperCase”, “LowerCase”, “Digits” and “All” (not case sensitive).\nThis can be combined to several types at once.\n\t\t\t\t\tprefix (string) - A string that will start the returned code (can’t be longer then the length property).\n\t\t\t\t\tsuffix (string) - A string that will end the returned code (can’t be longer then the length property).",
     "examples": "$text.generateCode({length:5, type:\"all\"}) // output: 'Fj5Tp'\n$text.generateCode({length:4, type:\"letters\"}) // output: 'iKep'\n$text.generateCode({length:6, type:\"lowerCase\",suffix:\"PRE\"}) // output: 'kolPRE'\n$text.generateCode({length:12, type:\"digits\", prefix:'LM'}) // output: 'LM5678156497'\n$text.generateCode({length:4, type:\"ALL\", prefix:'PRE', suffix:'SUF'}) // output: INVALID, length must be bigger then the length of the prefix and the suffix combined."

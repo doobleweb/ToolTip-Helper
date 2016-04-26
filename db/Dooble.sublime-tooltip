@@ -1,0 +1,170 @@
+{
+  "plural": {
+    "method": "$text.plural(text)",
+    "description": "Turns any string to it's plural form.",
+    "examples": "$text.plural('boy'); // output: 'boys'\n$text.plural('goose'); // output: 'geese'\n$text.plural('man'); // output: 'men'\n$text.plural('body'); // output: 'bodies'"
+  },
+  "singular": {
+    "method": "$text.singular(text)",
+    "description": "Turns any string to it's singular form.",
+    "examples": "$text.singular('cars'); // output: 'car'\n$text.singular('potatoes'); // output: 'potato'\n$text.singular('women'); // output: 'woman'\n$text.singular('fries'); // output: 'fry'"
+  },
+  "generateCode": {
+    "method": "$text.singular(settings)",
+    "description": "Generate a randomized string according to the settings object.",
+    "parameters": "settings - an setting object with the following:\n\t\t\t\t\tlength (number required) - The length of the given string (includes the length of the prefix and the suffix),\n\t\t\t\t\ttype  (string required) - The type of characters to form the string. \nThe options are “Letters”, “UpperCase”, “LowerCase”, “Digits” and “All” (not case sensitive).\nThis can be combined to several types at once.\n\t\t\t\t\tprefix (string) - A string that will start the returned code (can’t be longer then the length property).\n\t\t\t\t\tsuffix (string) - A string that will end the returned code (can’t be longer then the length property).",
+    "examples": "$text.generateCode({length:5, type:\"all\"}) // output: 'Fj5Tp'\n$text.generateCode({length:4, type:\"letters\"}) // output: 'iKep'\n$text.generateCode({length:6, type:\"lowerCase\",suffix:\"PRE\"}) // output: 'kolPRE'\n$text.generateCode({length:12, type:\"digits\", prefix:'LM'}) // output: 'LM5678156497'\n$text.generateCode({length:4, type:\"ALL\", prefix:'PRE', suffix:'SUF'}) // output: INVALID, length must be bigger then the length of the prefix and the suffix combined."
+  },
+  "convertToCamelCase": {
+    "description": "$text.convertToCamelCase(String) ",
+    "method": "converts the given string into camel case. removes all spaces dashs and dots, and replaces them with uppercase letters, and also converts the first letter into lower case.",
+    "examples": "$text.convertToCamelCase(\"my-function-name\") //output 'myFunctionName'\n$text.convertToCamelCase(\"Page id\") //output 'pageID'\n$text.convertToCamelCase(\"batman.on-fire\") //output 'batmanOnFire'",
+    "important": "Important: the function can’t convert any string that doesn’t have spaces, dots or dashed.\n$text.convertToCamelCase(\"mycarIsawesome\") //output 'mycarIsawesome'"
+  },
+  "guid": {
+    "method": "$util.guid()",
+    "description": "Return guid (globally unique identifier) string. It is a randomly generated 32 digits hexadecimal value. each time the method is used it will output a different value.",
+    "example": "$util.guid() // output: “21EC2020-3AEA-4069-A2DD-08002B30309D”"
+  },
+  "setQS": {
+    "method": "$util.setQS(url, key, value)",
+    "description": "Return the input url with a key as query string parameter equal to value.\n\tThe method take consider if the input url already have the certain key parameter and replace them.\nif value pass as null, the method will splice the queryString parameter from the url",
+    "examples": "var url = \"http://www.google.com/\";\n\turl = $util.setQS(url, \"isAdmin\", \"yesIAm\"); // output: http://www.google.com/?isAdmin=yesIAm\n\turl = $util.setQS(url, \"isAdmin\", \"notAnyMore\"); // output: http://www.google.com/?isAdmin=notAnymore\n\turl = $util.setQS(url, \"isAdmin\", null); // output: http://www.google.com/",
+    "keyboard shortcut": "$uqs"
+  },
+  "global": {
+    "method": "$server.global(text)",
+    "Shortcut": "$sg",
+    "description": " Get or sets Global variable (userid, username, siteid, etc...)"
+  },
+  "cookie": {
+    "method": "$server.cookie(text)",
+    "Shortcut": "$sc",
+    "description": " Get or sets Cookie variable."
+  },
+  "session": {
+    "method": "$server.session(text)",
+    "Shortcut": "$ss",
+    "description": " Get or sets Session variable"
+  },
+  "qs": {
+    "method": "$server.qs(text)",
+    "Shortcut": "$sq",
+    "description": " get a Query String from the current url address."
+  },
+  "prm": {
+    "method": "$server.prm(text)",
+    "Shortcut": "$sp",
+    "description": " get a Parameter that was sent to the current module."
+  },
+  "form": {
+    "method": "$server.form()",
+    "Shortcut": "$sf",
+    "description": " Get the Form that was sent (via HTTP POST)"
+  },
+  "sendMail": {
+    "method": "$server.sendMail(settings)",
+    "Shortcut": "$ssm",
+    "description": " Send Mail to the given address."
+  },
+  "action": {
+    "method": "$server.action(name,callback)",
+    "Shortcut": "$sa",
+    "description": " create a new Action. the db variable stores all the data that was sent into the action."
+  },
+  "beforeAction": {
+    "method": "$server.beforeAction(name,callback)",
+    "Shortcut": "$sba",
+    "description": " set an action to occurre Before the given Action.  the db variable stores all the data that was sent into the action."
+  },
+  "afterAction": {
+    "method": "$server.afterAction(name,callback)",
+    "Shortcut": "$saa",
+    "description": " set an action to occurre After the given Action.  the db variable stores all the data that was sent into the action."
+  },
+  "url": {
+    "method": "$server.url(boolean)",
+    "Shortcut": "$surl",
+    "description": "Get the current Url. set to false if you want the url without the domain name."
+  },
+  "decrypt": {
+    "method": "$server.decrypt(value)",
+    "Shortcut": "$sdyc",
+    "description": "Decrypt a Value."
+  },
+  "encrypt": {
+    "method": "$server.encrypt (value)",
+    "Shortcut": "$senc",
+    "description": "Encrypt a Value."
+  },
+  "redirect": {
+    "method": "$server.redirect('url')",
+    "Shortcut": "$sr",
+    "description": " Redirect the user to a new url."
+  },
+  "get": {
+    "method": "$service.get(url)",
+    "Shortcut": "$sget",
+    "description": " send a HTTP Get request."
+  },
+  "post": {
+    "method": "$service.post (url, postData, headers)",
+    "Shortcut": "$spost",
+    "description": " send a HTTP Post request."
+  },
+  "exists": {
+    "method": "$service.exists(url)",
+    "Shortcut": "$sexist",
+    "description": "checks if a Site Exists."
+  },
+  "require": {
+    "method": "require('/sjs/FileName.js')",
+    "Shortcut": "$req",
+    "description": "adds an sjs that is requierd to the code. prevents from adding multiple unnecessary import statements."
+  },
+  "query": {
+    "method": "$data.query(auto-joins query)",
+    "Shortcut": "$dq",
+    "description": " performs a Data Query request. will return a variable with only one field (the first, by default) of the first row found. uses auto-joins."
+  },
+  "queryRow": {
+    "method": "$data.queryRow(auto-joins query)",
+    "Shortcut": "$dqr",
+    "description": "performs a Data Query Row request. Will return an object all the fields of the first row found. uses auto-joins."
+  },
+  "queryList": {
+    "method": "$data.queryList(auto-joins query)",
+    "Shortcut": "$dql",
+    "description": "performs a Data Query List request. will return a list containing all the fields of all the rows it will find."
+  },
+  "sql": {
+    "method": "$data.sql(SQL query);",
+    "Shortcut": "$ds",
+    "description": " performs a SQL SELECT query. will return a variable with only one field (the first, by default) of the first row found."
+  },
+  "sqlRow": {
+    "method": "$data.sqlRow(SQL query);",
+    "Shortcut": "$dsr",
+    "description": "performs a SQL SELECT query. will return an object conatining all the fields of the first row found."
+  },
+  "sqlList": {
+    "method": "$data.sqlList(SQL query);",
+    "Shortcut": "$dsl",
+    "description": "performs a SQL SELECT query. will return a list of object containing all the field of the rows that were found."
+  },
+  "current": {
+    "method": "$data.current()",
+    "Shortcut": "$dc",
+    "description": " will return all the Data that is used by the Current module."
+  },
+  "currentList": {
+    "method": "$data.currentList()",
+    "Shortcut": "$dcl",
+    "description": "will return all the Data that is used by  the Current module as a List."
+  },
+  "safe": {
+    "method": "$data.safe(text)",
+    "Shortcut": "$de",
+    "description": "will make the variable safe to use in queries by Escaping the data."
+  }
+}

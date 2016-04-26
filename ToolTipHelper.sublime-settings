@@ -11,6 +11,11 @@
 			"file_name": "PythonSublimeAPI.sublime-tooltip",
 			"link": "http://www.sublimetext.com/docs/3/api_reference.html",
 			"scope": "source.python"
+		},
+		{
+			"file_name": "Dooble.sublime-tooltip",
+			"link": "http://www.htmlpp.com/sjs-api-listing",
+			"scope": "source.js"
 		}
 	],
 	// set timeout to false if you dont want that the tooltip window close.

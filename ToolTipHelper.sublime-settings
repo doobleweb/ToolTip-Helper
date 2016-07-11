@@ -38,17 +38,17 @@
 	{
 		"title": 
 		{
-			"color": "white",
+			"color": "black",
 			"text-decoration": "underline"
 		},
 		"content":
 		{
-			"color": "white",
+			"color": "black",
 			"text-decoration": "none"
 		},
 	        "link":
 	        {
-	        	"color": "white",
+	        	"color": "black",
 			"text-decoration": "underline"
 			
 		}

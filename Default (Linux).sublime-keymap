@@ -1,0 +1,8 @@
+[
+    {
+        "keys": ["ctrl+7"], "command": "enter_data", "args": {}
+    },
+    {
+    	"keys": ["f1"], "command": "tool_tip_helper", "args": {}
+    }
+]

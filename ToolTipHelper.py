@@ -342,40 +342,44 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         results = sublime.active_window().lookup_symbol_in_index(sel)
         if not results:
             return []
-
-        jsons = []
-        count = 0
-        for result in results:
-            # get file path
-            file_name = result[0]
-            splited_file_name = file_name.split('/')
-            # in case we have a broken path
-            if ':' not in splited_file_name[1]:
-                file_name = self.fix_broken_path(splited_file_name)
-            # get the file extension
-            filename, file_extension = os.path.splitext(file_name)
-            # in case the scope is not valid
-            if file_extension not in scope:
-                continue
-            # get row number
-            row = result[2][0]
-            content = self.get_file_content(file_name)
-            has_location , location = self.get_doc_location(content, row)
-            if not has_location:
-                msg = 'Problem in %s. check if <doc></doc> tag is exist.' %('\"' + str(result[1]) + "\" file in location " + str(result[2]))
-                self.logger_msg += msg + "\nThe content of dynamic doc must be between the the open\close tags in new lines. If you continue a new line of some parameter, remember to remove \':\' from the line."
-                continue
-            json_result = self.get_doc_content_by_location(content, location)
-            if json_result:
-                loc = (result[2][0], result[2][1])
-                jsons.append({"file_name": file_name, "json_result": json_result, "location": loc})
-            keys = list(json_result.keys())
-            # add key to keyorder and count the change
-            count += self.update_keyorder_list(keys)
-        # if there is one change, save it in settings.
-        if count != 0:
-            self.save_keyorder_list()
-        return jsons
+        try:
+            jsons = []
+            count = 0
+            for result in results:
+                # get file path
+                file_name = result[0]
+                splited_file_name = file_name.split('/')
+                if len(splited_file_name) <= 1:
+                    continue
+                # in case we have a broken path
+                if ':' not in splited_file_name[1]:
+                    file_name = self.fix_broken_path(splited_file_name)
+                # get the file extension
+                filename, file_extension = os.path.splitext(file_name)
+                # in case the scope is not valid
+                if file_extension not in scope:
+                    continue
+                # get row number
+                row = result[2][0]
+                content = self.get_file_content(file_name)
+                has_location , location = self.get_doc_location(content, row)
+                if not has_location:
+                    msg = 'Problem in %s. check if <doc></doc> tag is exist.' %('\"' + str(result[1]) + "\" file in location " + str(result[2]))
+                    self.logger_msg += msg + "\nThe content of dynamic doc must be between the the open\close tags in new lines. If you continue a new line of some parameter, remember to remove \':\' from the line."
+                    continue
+                json_result = self.get_doc_content_by_location(content, location)
+                if json_result:
+                    loc = (result[2][0], result[2][1])
+                    jsons.append({"file_name": file_name, "json_result": json_result, "location": loc})
+                keys = list(json_result.keys())
+                # add key to keyorder and count the change
+                count += self.update_keyorder_list(keys)
+            # if there is one change, save it in settings.
+            if count != 0:
+                self.save_keyorder_list()
+            return jsons
+        except Exception:
+            return []
 
     def get_doc_location(self, content, row):
         """ get location of doc - start row & end row """

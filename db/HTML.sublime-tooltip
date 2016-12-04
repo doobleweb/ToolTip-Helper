@@ -1,0 +1,513 @@
+{
+   "DOCTYPE":{
+      "description":"Defines the document type",
+      "link":"http://www.w3schools.com/tags/tag_DOCTYPE.asp"
+   },
+   "a":{
+      "description":"Defines a hyperlink",
+      "link":"http://www.w3schools.com/tags/tag_a.asp"
+   },
+   "abbr":{
+      "description":"Defines an abbreviation or an acronym",
+      "link":"http://www.w3schools.com/tags/tag_abbr.asp"
+   },
+   "acronym":{
+      "description":"Defines an acronym",
+      "note": "Not supported in HTML5. Use &lt;abbr&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_acronym.asp"
+   },
+   "address":{
+      "description":"Defines contact information for the author/owner of a document",
+      "link":"http://www.w3schools.com/tags/tag_address.asp"
+   },
+   "applet":{
+      "description":"Defines an embedded applet",
+      "note": "Not supported in HTML5. Use &lt;embed&gt; or &lt;object&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_applet.asp"
+   },
+   "area":{
+      "description":"Defines an area inside an image-map",
+      "link":"http://www.w3schools.com/tags/tag_area.asp"
+   },
+   "article":{
+      "description":"Defines an article",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_article.asp"
+   },
+   "aside":{
+      "description":"Defines content aside from the page content",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_aside.asp"
+   },
+   "audio":{
+      "description":"Defines sound content",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_audio.asp"
+   },
+   "b":{
+      "description":"Defines bold text",
+      "link":"http://www.w3schools.com/tags/tag_b.asp"
+   },
+   "base":{
+      "description":"Specifies the base URL/target for all relative URLs in a document",
+      "link":"http://www.w3schools.com/tags/tag_base.asp"
+   },
+   "basefont":{
+      "description":"Specifies a default color, size, and font for all text in a document",
+      "note": "Not supported in HTML5. Use &lt;embed&gt; or &lt;object&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_basefont.asp"
+   },
+   "bdi":{
+      "description":"Isolates a part of text that might be formatted in a different direction from other text outside it",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_bdi.asp"
+   },
+   "bdo":{
+      "description":"Overrides the current text direction",
+      "link":"http://www.w3schools.com/tags/tag_bdo.asp"
+   },
+   "big":{
+      "description":"Defines big text",
+      "note": "Not supported in HTML5. Use &lt;embed&gt; or &lt;object&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_big.asp"
+   },
+   "blockquote":{
+      "description":"Defines a section that is quoted from another source",
+      "link":"http://www.w3schools.com/tags/tag_blockquote.asp"
+   },
+   "body":{
+      "description":"Defines the document's body",
+      "link":"http://www.w3schools.com/tags/tag_body.asp"
+   },
+   "br":{
+      "description":"Defines a single line break",
+      "link":"http://www.w3schools.com/tags/tag_br.asp"
+   },
+   "button":{
+      "description":"Defines a clickable button",
+      "link":"http://www.w3schools.com/tags/tag_button.asp"
+   },
+   "canvas":{
+      "description":"Used to draw graphics, on the fly, via scripting (usually JavaScript)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_canvas.asp"
+   },
+   "caption":{
+      "description":"Defines a table caption",
+      "link":"http://www.w3schools.com/tags/tag_caption.asp"
+   },
+   "center":{
+      "description":"Defines centered text",
+      "note": "Not supported in HTML5. Use CSS instead.",
+      "link":"http://www.w3schools.com/tags/tag_center.asp"
+   },
+   "cite":{
+      "description":"Defines the title of a work",
+      "link":"http://www.w3schools.com/tags/tag_cite.asp"
+   },
+   "code":{
+      "description":"Defines a piece of computer code",
+      "link":"http://www.w3schools.com/tags/tag_code.asp"
+   },
+   "col":{
+      "description":"Specifies column properties for each column within a &lt;colgroup&gt; element&nbsp;",
+      "link":"http://www.w3schools.com/tags/tag_col.asp"
+   },
+   "colgroup":{
+      "description":"Specifies a group of one or more columns in a table for formatting",
+      "link":"http://www.w3schools.com/tags/tag_colgroup.asp"
+   },
+   "datalist":{
+      "description":"Specifies a list of pre-defined options for input controls",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_datalist.asp"
+   },
+   "dd":{
+      "description":"Defines a description/value of a term in a description list",
+      "link":"http://www.w3schools.com/tags/tag_dd.asp"
+   },
+   "del":{
+      "description":"Defines text that has been deleted from a document",
+      "link":"http://www.w3schools.com/tags/tag_del.asp"
+   },
+   "details":{
+      "description":"Defines additional details that the user can view or hide",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_details.asp"
+   },
+   "dfn":{
+      "description":"Represents the defining instance of a term",
+      "link":"http://www.w3schools.com/tags/tag_dfn.asp"
+   },
+   "dialog":{
+      "description":"Defines a dialog box or window",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_dialog.asp"
+   },
+   "dir":{
+      "description":"Defines a directory list",
+      "note": "Not supported in HTML5. Use &lt;ul&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_dir.asp"
+   },
+   "div":{
+      "description":"Defines a section in a document",
+      "link":"http://www.w3schools.com/tags/tag_div.asp"
+   },
+   "dl":{
+      "description":"Defines a description list",
+      "link":"http://www.w3schools.com/tags/tag_dl.asp"
+   },
+   "dt":{
+      "description":"Defines a term/name in a description list",
+      "link":"http://www.w3schools.com/tags/tag_dt.asp"
+   },
+   "em":{
+      "description":"Defines emphasized text&nbsp;",
+      "link":"http://www.w3schools.com/tags/tag_em.asp"
+   },
+   "embed":{
+      "description":"Defines a container for an external (non-HTML) application",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_embed.asp"
+   },
+   "fieldset":{
+      "description":"Groups related elements in a form",
+      "link":"http://www.w3schools.com/tags/tag_fieldset.asp"
+   },
+   "figcaption":{
+      "description":"Defines a caption for a &lt;figure&gt; element",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_figcaption.asp"
+   },
+   "figure":{
+      "description":"Specifies self-contained content",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_figure.asp"
+   },
+   "font":{
+      "description":"Defines font, color, and size for text",
+      "note": "Not supported in HTML5. Use &lt;ul&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_font.asp"
+   },
+   "footer":{
+      "description":"Defines a footer for a document or section",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_footer.asp"
+   },
+   "form":{
+      "description":"Defines an HTML form for user input",
+      "link":"http://www.w3schools.com/tags/tag_form.asp"
+   },
+   "frame":{
+      "description":"Defines a window (a frame) in a frameset",
+      "note": "Not supported in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_frame.asp"
+   },
+   "frameset":{
+      "description":"Defines a set of frames",
+      "note": "Not supported in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_frameset.asp"
+   },
+   "h6":{
+      "description":" Defines HTML headings",
+      "link":"http://www.w3schools.com/tags/tag_h6.asp"
+   },
+   "head":{
+      "description":"Defines information about the document",
+      "link":"http://www.w3schools.com/tags/tag_head.asp"
+   },
+   "header":{
+      "description":"Defines a header for a document or section",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_header.asp"
+   },
+   "hr":{
+      "description":" Defines a thematic change in the content",
+      "link":"http://www.w3schools.com/tags/tag_hr.asp"
+   },
+   "html":{
+      "description":"Defines the root of an HTML document",
+      "link":"http://www.w3schools.com/tags/tag_html.asp"
+   },
+   "i":{
+      "description":"Defines a part of text in an alternate voice or mood",
+      "link":"http://www.w3schools.com/tags/tag_i.asp"
+   },
+   "iframe":{
+      "description":"Defines an inline frame",
+      "link":"http://www.w3schools.com/tags/tag_iframe.asp"
+   },
+   "img":{
+      "description":"Defines an image",
+      "link":"http://www.w3schools.com/tags/tag_img.asp"
+   },
+   "input":{
+      "description":"Defines an input control",
+      "link":"http://www.w3schools.com/tags/tag_input.asp"
+   },
+   "ins":{
+      "description":"Defines a text that has been inserted into a document",
+      "link":"http://www.w3schools.com/tags/tag_ins.asp"
+   },
+   "kbd":{
+      "description":"Defines keyboard input",
+      "link":"http://www.w3schools.com/tags/tag_kbd.asp"
+   },
+   "keygen":{
+      "description":"Defines a key-pair generator field (for forms)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_keygen.asp"
+   },
+   "label":{
+      "description":"Defines a label&nbsp;for an &lt;input&gt; element",
+      "link":"http://www.w3schools.com/tags/tag_label.asp"
+   },
+   "legend":{
+      "description":"Defines a caption for a &lt;fieldset&gt; element",
+      "link":"http://www.w3schools.com/tags/tag_legend.asp"
+   },
+   "li":{
+      "description":"Defines a list item",
+      "link":"http://www.w3schools.com/tags/tag_li.asp"
+   },
+   "link":{
+      "description":"Defines the relationship between a document and an external resource (most used to link to style sheets)",
+      "link":"http://www.w3schools.com/tags/tag_link.asp"
+   },
+   "main":{
+      "description":"Specifies the main content of a document",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_main.asp"
+   },
+   "map":{
+      "description":"Defines a client-side image-map",
+      "link":"http://www.w3schools.com/tags/tag_map.asp"
+   },
+   "mark":{
+      "description":"Defines marked/highlighted text",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_mark.asp"
+   },
+   "menu":{
+      "description":"Defines a list/menu of commands",
+      "link":"http://www.w3schools.com/tags/tag_menu.asp"
+   },
+   "menuitem":{
+      "description":"Defines a command/menu item that the user can invoke from a popup menu",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_menuitem.asp"
+   },
+   "meta":{
+      "description":"Defines metadata about an HTML document",
+      "link":"http://www.w3schools.com/tags/tag_meta.asp"
+   },
+   "meter":{
+      "description":"Defines a scalar measurement within a known range (a gauge)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_meter.asp"
+   },
+   "nav":{
+      "description":"Defines navigation links",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_nav.asp"
+   },
+   "noframes":{
+      "description":"Defines an alternate content for users that do not support frames",
+      "note": "Not supported in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_noframes.asp"
+   },
+   "noscript":{
+      "description":"Defines an alternate content for users that do not support client-side scripts",
+      "link":"http://www.w3schools.com/tags/tag_noscript.asp"
+   },
+   "object":{
+      "description":"Defines an embedded object",
+      "link":"http://www.w3schools.com/tags/tag_object.asp"
+   },
+   "ol":{
+      "description":"Defines an ordered list",
+      "link":"http://www.w3schools.com/tags/tag_ol.asp"
+   },
+   "optgroup":{
+      "description":"Defines a group of related options in a drop-down list",
+      "link":"http://www.w3schools.com/tags/tag_optgroup.asp"
+   },
+   "option":{
+      "description":"Defines an option in a drop-down list",
+      "link":"http://www.w3schools.com/tags/tag_option.asp"
+   },
+   "output":{
+      "description":"Defines the result of a calculation",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_output.asp"
+   },
+   "p":{
+      "description":"Defines a paragraph",
+      "link":"http://www.w3schools.com/tags/tag_p.asp"
+   },
+   "param":{
+      "description":"Defines a parameter for an object",
+      "link":"http://www.w3schools.com/tags/tag_param.asp"
+   },
+   "pre":{
+      "description":"Defines preformatted text",
+      "link":"http://www.w3schools.com/tags/tag_pre.asp"
+   },
+   "progress":{
+      "description":"Represents the progress of a task",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_progress.asp"
+   },
+   "q":{
+      "description":"Defines a short quotation",
+      "link":"http://www.w3schools.com/tags/tag_q.asp"
+   },
+   "rp":{
+      "description":"Defines what to show in browsers that do not support ruby annotations",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_rp.asp"
+   },
+   "rt":{
+      "description":"Defines an explanation/pronunciation of characters (for East Asian typography)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_rt.asp"
+   },
+   "ruby":{
+      "description":"Defines a ruby annotation (for East Asian typography)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_ruby.asp"
+   },
+   "s":{
+      "description":"Defines text that is no longer correct",
+      "link":"http://www.w3schools.com/tags/tag_s.asp"
+   },
+   "samp":{
+      "description":"Defines sample output from a computer program",
+      "link":"http://www.w3schools.com/tags/tag_samp.asp"
+   },
+   "script":{
+      "description":"Defines a client-side script",
+      "link":"http://www.w3schools.com/tags/tag_script.asp"
+   },
+   "section":{
+      "description":"Defines a section in a document",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_section.asp"
+   },
+   "select":{
+      "description":"Defines a drop-down list",
+      "link":"http://www.w3schools.com/tags/tag_select.asp"
+   },
+   "small":{
+      "description":"Defines smaller text",
+      "link":"http://www.w3schools.com/tags/tag_small.asp"
+   },
+   "source":{
+      "description":"Defines multiple media resources for media elements (&lt;video&gt; and &lt;audio&gt;)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_source.asp"
+   },
+   "span":{
+      "description":"Defines a section in a document",
+      "link":"http://www.w3schools.com/tags/tag_span.asp"
+   },
+   "strike":{
+      "description":"Defines strikethrough text",
+      "note": "Not supported in HTML5. Use &lt;del&gt; or &lt;s&gt; instead.",
+      "link":"http://www.w3schools.com/tags/tag_strike.asp"
+   },
+   "strong":{
+      "description":"Defines important text",
+      "link":"http://www.w3schools.com/tags/tag_strong.asp"
+   },
+   "style":{
+      "description":"Defines style information for a document",
+      "link":"http://www.w3schools.com/tags/tag_style.asp"
+   },
+   "sub":{
+      "description":"Defines subscripted text",
+      "link":"http://www.w3schools.com/tags/tag_sub.asp"
+   },
+   "summary":{
+      "description":"Defines a visible heading for a &lt;details&gt; element",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_summary.asp"
+   },
+   "sup":{
+      "description":"Defines superscripted text",
+      "link":"http://www.w3schools.com/tags/tag_sup.asp"
+   },
+   "table":{
+      "description":"Defines a table",
+      "link":"http://www.w3schools.com/tags/tag_table.asp"
+   },
+   "tbody":{
+      "description":"Groups the body content in a table",
+      "link":"http://www.w3schools.com/tags/tag_tbody.asp"
+   },
+   "td":{
+      "description":"Defines a cell in a table",
+      "link":"http://www.w3schools.com/tags/tag_td.asp"
+   },
+   "textarea":{
+      "description":"Defines a multiline input control (text area)",
+      "link":"http://www.w3schools.com/tags/tag_textarea.asp"
+   },
+   "tfoot":{
+      "description":"Groups the footer content in a table",
+      "link":"http://www.w3schools.com/tags/tag_tfoot.asp"
+   },
+   "th":{
+      "description":"Defines a header cell in a table",
+      "link":"http://www.w3schools.com/tags/tag_th.asp"
+   },
+   "thead":{
+      "description":"Groups the header content in a table",
+      "link":"http://www.w3schools.com/tags/tag_thead.asp"
+   },
+   "time":{
+      "description":"Defines a date/time",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_time.asp"
+   },
+   "title":{
+      "description":"Defines a title for the document",
+      "link":"http://www.w3schools.com/tags/tag_title.asp"
+   },
+   "tr":{
+      "description":"Defines a row in a table",
+      "link":"http://www.w3schools.com/tags/tag_tr.asp"
+   },
+   "track":{
+      "description":"Defines text tracks for media elements (&lt;video&gt; and &lt;audio&gt;)",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_track.asp"
+   },
+   "tt":{
+      "description":"Defines teletype text",
+      "note": "Not supported in HTML5. Use CSS instead.",
+      "link":"http://www.w3schools.com/tags/tag_tt.asp"
+   },
+   "u":{
+      "description":"Defines text that should be stylistically different from normal text",
+      "link":"http://www.w3schools.com/tags/tag_u.asp"
+   },
+   "ul":{
+      "description":"Defines an unordered list",
+      "link":"http://www.w3schools.com/tags/tag_ul.asp"
+   },
+   "var":{
+      "description":"Defines a variable",
+      "link":"http://www.w3schools.com/tags/tag_var.asp"
+   },
+   "video":{
+      "description":"Defines a video or movie",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_video.asp"
+   },
+   "wbr":{
+      "description":"Defines a possible line-break",
+      "note":"New in HTML5.",
+      "link":"http://www.w3schools.com/tags/tag_wbr.asp"
+   }
+}

@@ -13,6 +13,11 @@
 			"scope": "source.python"
 		},
 		{
+			"file_name": "HTML.sublime-tooltip",
+			"link": "http://www.w3schools.com/html/",
+			"scope": "text.html"
+		},
+		{
 			"file_name": "Dooble.sublime-tooltip",
 			"link": "http://www.htmlpp.com/sjs-api-listing",
 			"scope": "source.js"

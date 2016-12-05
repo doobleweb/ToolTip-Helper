@@ -21,6 +21,11 @@
 			"file_name": "Dooble.sublime-tooltip",
 			"link": "http://www.htmlpp.com/sjs-api-listing",
 			"scope": "source.js"
+		},
+		{
+			"file_name": "CSS.sublime-tooltip",
+			"link": "http://www.w3schools.com/css/",
+			"scope": "source.css"
 		}
 	],
 	// set timeout to false if you dont want that the tooltip window close.

@@ -1,0 +1,896 @@
+{
+  "color": {
+    "description": "Sets the color of text",
+    "css_version": "1",
+    "link": "http://www.w3schools.com/cssref/pr_text_color.asp"
+  },
+  "opacity": {
+    "description": "Sets the opacity level for an element",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_opacity.asp"
+  },
+  "background": {
+    "description": "A shorthand property for setting all the background properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/css3_pr_background.asp"
+  },
+  "background-attachment": {
+    "description": "Sets whether a background image is fixed or scrolls with the rest of the page",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_background-attachment.asp"
+  },
+  "background-blend-mode": {
+    "description": "Specifies the blending mode of each background layer (color/image)",
+    "css_version": "3 ",
+     "link": "http://www.w3schools.com/cssref/pr_background-blend-mode.asp"
+  },
+  "background-color": {
+    "description": "Specifies the background color of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_background-color.asp"
+  },
+  "background-image": {
+    "description": "Specifies one or more background images for an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_background-image.asp"
+  },
+  "background-position": {
+    "description": "Specifies the position of a background image",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_background-position.asp"
+  },
+  "background-repeat": {
+    "description": "Sets how a background image will be repeated",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_background-repeat.asp"
+  },
+  "background-clip": {
+    "description": "Specifies the painting area of the background",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_background-clip.asp"
+  },
+  "background-origin": {
+    "description": "Specifies where the background image(s) is/are positioned",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_background-origin.asp"
+  },
+  "background-size": {
+    "description": "Specifies the size of the background image(s)",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_background-size.asp"
+  },
+  "border": {
+    "description": "Sets all the border properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border.asp"
+  },
+  "border-bottom": {
+    "description": "Sets all the bottom border properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-bottom.asp"
+  },
+  "border-bottom-color": {
+    "description": "Sets the color of the bottom border",
+    "css_version": "1 ",
+     "link": "http://www.w3schools.com/cssref/pr_border-bottom_color.asp"
+  },
+  "border-bottom-left-radius": {
+    "description": "Defines the shape of the border of the bottom-left corner",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-bottom-left-radius.asp"
+  },
+  "border-bottom-right-radius": {
+    "description": "Defines the shape of the border of the bottom-right corner",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-bottom-right-radius.asp"
+  },
+  "border-bottom-style": {
+    "description": "Sets the style of the bottom border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-bottom_style.asp"
+  },
+  "border-bottom-width": {
+    "description": "Sets the width of the bottom border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-bottom_width.asp"
+  },
+  "border-color": {
+    "description": "Sets the color of the four borders",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-color.asp"
+  },
+  "border-image": {
+    "description": "A shorthand property for setting all the border-image-* properties",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image.asp"
+  },
+  "border-image-outset": {
+    "description": "Specifies the amount by which the border image area extends beyond the border box",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image-outset.asp"
+  },
+  "border-image-repeat": {
+    "description": "Specifies whether the border image should be repeated, rounded or stretched",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image-repeat.asp"
+  },
+  "border-image-slice": {
+    "description": "Specifies how to slice the border image",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image-slice.asp"
+  },
+  "border-image-source": {
+    "description": "Specifies the path to the image to be used as a border",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image-source.asp"
+  },
+  "border-image-width": {
+    "description": "Specifies the widths of the image-border",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-image-width.asp"
+  },
+  "border-left": {
+    "description": "Sets all the left border properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-left.asp"
+  },
+  "border-left-color": {
+    "description": "Sets the color of the left border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-left_color.asp"
+  },
+  "border-left-style": {
+    "description": "Sets the style of the left border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-left_style.asp"
+  },
+  "border-left-width": {
+    "description": "Sets the width of the left border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-left_width.asp"
+  },
+  "border-radius": {
+    "description": "A shorthand property for setting all the four border-*-radius properties",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-radius.asp"
+  },
+  "border-right": {
+    "description": "Sets all the right border properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-right.asp"
+  },
+  "border-right-color": {
+    "description": "Sets the color of the right border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-right_color.asp"
+  },
+  "border-right-style": {
+    "description": "Sets the style of the right border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-right_style.asp"
+  },
+  "border-right-width": {
+    "description": "Sets the width of the right border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-right_width.asp"
+  },
+  "border-style": {
+    "description": "Sets the style of the four borders",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-style.asp"
+  },
+  "border-top": {
+    "description": "Sets all the top border properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-top.asp"
+  },
+  "border-top-color": {
+    "description": "Sets the color of the top border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-top_color.asp"
+  },
+  "border-top-left-radius": {
+    "description": "Defines the shape of the border of the top-left corner",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-top-left-radius.asp"
+  },
+  "border-top-right-radius": {
+    "description": "Defines the shape of the border of the top-right corner",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_border-top-right-radius.asp"
+  },
+  "border-top-style": {
+    "description": "Sets the style of the top border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-top_style.asp"
+  },
+  "border-top-width": {
+    "description": "Sets the width of the top border",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-top_width.asp"
+  },
+  "border-width": {
+    "description": "Sets the width of the four borders",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_border-width.asp"
+  },
+  "": {
+    "css_version": "3",
+    "description": "Sets the style of the moving content"
+  },
+  "box-shadow": {
+    "description": "Attaches one or more drop-shadows to the box",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_box-shadow.asp"
+  },
+  "bottom": {
+    "description": "Specifies the bottom position of a positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_bottom.asp"
+  },
+  "clear": {
+    "description": "Specifies which sides of an element where other floating elements are not allowed",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_class_clear.asp"
+  },
+  "clip": {
+    "description": "Clips an absolutely positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_clip.asp"
+  },
+  "display": {
+    "description": "Specifies how a certain HTML element should be displayed",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_class_display.asp"
+  },
+  "float": {
+    "description": "Specifies whether or not a box should float",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_class_float.asp"
+  },
+  "height": {
+    "description": "Sets the height of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_dim_height.asp"
+  },
+  "left": {
+    "description": "Specifies the left position of a positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_left.asp"
+  },
+  "margin": {
+    "description": "Sets all the margin properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_margin.asp"
+  },
+  "margin-bottom": {
+    "description": "Sets the bottom margin of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_margin-bottom.asp"
+  },
+  "margin-left": {
+    "description": "Sets the left margin of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_margin-left.asp"
+  },
+  "margin-right": {
+    "description": "Sets the right margin of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_margin-right.asp"
+  },
+  "margin-top": {
+    "description": "Sets the top margin of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_margin-top.asp"
+  },
+  "max-height": {
+    "description": "Sets the maximum height of an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_dim_max-height.asp"
+  },
+  "max-width": {
+    "description": "Sets the maximum width of an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_dim_max-width.asp"
+  },
+  "min-height": {
+    "description": "Sets the minimum height of an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_dim_min-height.asp"
+  },
+  "min-width": {
+    "description": "Sets the minimum width of an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_dim_min-width.asp"
+  },
+  "overflow": {
+    "description": "Specifies what happens if content overflows an element's box",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_overflow.asp"
+  },
+  "overflow-x": {
+    "description": "Specifies whether or not to clip the left/right edges of the content, if it overflows the element's content area",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_overflow-x.asp"
+  },
+  "overflow-y": {
+    "description": "Specifies whether or not to clip the top/bottom edges of the content, if it overflows the element's content area",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_overflow-y.asp"
+  },
+  "padding": {
+    "description": "Sets all the padding properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_padding.asp"
+  },
+  "padding-bottom": {
+    "description": "Sets the bottom padding of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_padding-bottom.asp"
+  },
+  "padding-left": {
+    "description": "Sets the left padding of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_padding-left.asp"
+  },
+  "padding-right": {
+    "description": "Sets the right padding of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_padding-right.asp"
+  },
+  "padding-top": {
+    "description": "Sets the top padding of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_padding-top.asp"
+  },
+  "position": {
+    "description": "Specifies the type of positioning method used for an element (static, relative, absolute or fixed)",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_class_position.asp"
+  },
+  "right": {
+    "description": "Specifies the right position of a positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_right.asp"
+  },
+  "top": {
+    "description": "Specifies the top position of a positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_top.asp"
+  },
+  "visibility": {
+    "description": "Specifies whether or not an element is visible",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_class_visibility.asp"
+  },
+  "width": {
+    "description": "Sets the width of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_dim_width.asp"
+  },
+  "vertical-align": {
+    "description": "Sets the vertical alignment of an element",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_pos_vertical-align.asp"
+  },
+  "z-index": {
+    "description": "Sets the stack order of a positioned element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_pos_z-index.asp"
+  },
+  "align-content": {
+    "description": "Specifies the alignment between the lines inside a flexible container when the items do not use all available space",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_align-content.asp"
+  },
+  "align-items": {
+    "description": "Specifies the alignment for items inside a flexible container",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_align-items.asp"
+  },
+  "align-self": {
+    "description": "Specifies the alignment for selected items inside a flexible container",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_align-self.asp"
+  },
+  "flex": {
+    "description": "Specifies the length of the item, relative to the rest",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex.asp"
+  },
+  "flex-basis": {
+    "description": "Specifies the initial length of a flexible item",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-basis.asp"
+  },
+  "flex-direction": {
+    "description": "Specifies the direction of the flexible items",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-direction.asp"
+  },
+  "flex-flow": {
+    "description": "A shorthand property for the flex-direction and the flex-wrap properties",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-flow.asp"
+  },
+  "flex-grow": {
+    "description": "Specifies how much the item will grow relative to the rest",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-grow.asp"
+  },
+  "flex-shrink": {
+    "description": "Specifies how the item will shrink relative to the rest",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-shrink.asp"
+  },
+  "flex-wrap": {
+    "description": "Specifies whether the flexible items should wrap or not",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_flex-wrap.asp"
+  },
+  "justify-content": {
+    "description": "Specifies the alignment between the items inside a flexible container when the items do not use all available space",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_justify-content.asp"
+  },
+  "order": {
+    "description": "Sets the order of the flexible item, relative to the rest",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_order.asp"
+  },
+  "hanging-punctuation": {
+    "description": "Specifies whether a punctuation character may be placed outside the line box",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_hanging-punctuation.asp"
+  },
+  "letter-spacing": {
+    "description": "Increases or decreases the space between characters in a text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_letter-spacing.asp"
+  },
+  "line-height": {
+    "description": "Sets the line height",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_dim_line-height.asp"
+  },
+  "tab-size": {
+    "description": "Specifies the length of the tab-character",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_tab-size.asp"
+  },
+  "text-align": {
+    "description": "Specifies the horizontal alignment of text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_text-align.asp"
+  },
+  "text-align-last": {
+    "description": "Describes how the last line of a block or a line right before a forced line break is aligned when text-align is \"justify\"",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-align-last.asp"
+  },
+  "text-indent": {
+    "description": "Specifies the indentation of the first line in a text-block",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_text-indent.asp"
+  },
+  "text-justify": {
+    "description": "Specifies the justification method used when text-align is \"justify\"",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-justify.asp"
+  },
+  "text-transform": {
+    "description": "Controls the capitalization of text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_text-transform.asp"
+  },
+  "white-space": {
+    "description": "Specifies how white-space inside an element is handled",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_white-space.asp"
+  },
+  "word-break": {
+    "description": "Specifies line breaking rules for non-CJK scripts",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_word-break.asp"
+  },
+  "word-spacing": {
+    "description": "Increases or decreases the space between words in a text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_word-spacing.asp"
+  },
+  "word-wrap": {
+    "description": "Allows long, unbreakable words to be broken and wrap to the next line",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_word-wrap.asp"
+  },
+  "text-decoration": {
+    "description": "Specifies the decoration added to text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_text_text-decoration.asp"
+  },
+  "text-decoration-color": {
+    "description": "Specifies the color of the text-decoration",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-decoration-color.asp"
+  },
+  "text-decoration-line": {
+    "description": "Specifies the type of line in a text-decoration",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-decoration-line.asp"
+  },
+  "text-decoration-style": {
+    "description": "Specifies the style of the line in a text decoration",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-decoration-style.asp"
+  },
+  "text-shadow": {
+    "description": "Adds shadow to text ",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-shadow.asp"
+  },
+  "@font-face": {
+    "description": "A rule that allows websites to download and use fonts other than the \"web-safe\" fonts",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_font-face_rule.asp"
+  },
+  "font": {
+    "description": "Sets all the font properties in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_font.asp"
+  },
+  "font-family": {
+    "description": "Specifies the font family for text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_font-family.asp"
+  },
+  "font-size": {
+    "description": "Specifies the font size of text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_font-size.asp"
+  },
+  "font-size-adjust": {
+    "description": "Preserves the readability of text when font fallback occurs",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_font-size-adjust.asp"
+  },
+  "font-stretch": {
+    "description": "Selects a normal, condensed, or expanded face from a font family",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_font-stretch.asp"
+  },
+  "font-style": {
+    "description": "Specifies the font style for text",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_font-style.asp"
+  },
+  "font-variant": {
+    "description": "Specifies whether or not a text should be displayed in a small-caps font",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_font-variant.asp"
+  },
+  "font-weight": {
+    "description": "Specifies the weight of a font",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_font_weight.asp"
+  },
+  "direction": {
+    "description": "Specifies the text direction/writing direction",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_text_direction.asp"
+  },
+  "unicode-bidi": {
+    "description": "Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_text_unicode-bidi.asp"
+  },
+  "border-collapse": {
+    "description": "Specifies whether or not table borders should be collapsed",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_border-collapse.asp"
+  },
+  "border-spacing": {
+    "description": "Specifies the distance between the borders of adjacent cells",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_border-spacing.asp"
+  },
+  "caption-side": {
+    "description": "Specifies the placement of a table caption",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_tab_caption-side.asp"
+  },
+  "empty-cells": {
+    "description": "Specifies whether or not to display borders and background on empty cells in a table",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_tab_empty-cells.asp"
+  },
+  "table-layout": {
+    "description": "Sets the layout algorithm to be used for a table",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_tab_table-layout.asp"
+  },
+  "counter-increment": {
+    "description": "Increments one or more counters",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_gen_counter-increment.asp"
+  },
+  "counter-reset": {
+    "description": "Creates or resets one or more counters",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_gen_counter-reset.asp"
+  },
+  "list-style": {
+    "description": "Sets all the properties for a list in one declaration",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_list-style.asp"
+  },
+  "list-style-image": {
+    "description": "Specifies an image as the list-item marker",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_list-style-image.asp"
+  },
+  "list-style-position": {
+    "description": "Specifies if the list-item markers should appear inside or outside the content flow",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_list-style-position.asp"
+  },
+  "list-style-type": {
+    "description": "Specifies the type of list-item marker",
+    "css_version": "1",
+     "link": "http://www.w3schools.com/cssref/pr_list-style-type.asp"
+  },
+  "@keyframes": {
+    "description": "Specifies the animation code",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp"
+  },
+  "animation": {
+    "description": "A shorthand property for all the animation properties (except animation-play-state and animation-fill-mode)",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation.asp"
+  },
+  "animation-delay": {
+    "description": "Specifies a delay for the start of an animation",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-delay.asp"
+  },
+  "animation-direction": {
+    "description": "Specifies whether or not the animation should play in reverse on alternate cycles",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-direction.asp"
+  },
+  "animation-duration": {
+    "description": "Specifies how many seconds or milliseconds an animation takes to complete one cycle",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-duration.asp"
+  },
+  "animation-fill-mode": {
+    "description": "Specifies a style for the element when the animation is not playing (when it is finished, or when it has a delay)",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp"
+  },
+  "animation-iteration-count": {
+    "description": "Specifies the number of times an animation should be played",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp"
+  },
+  "animation-name": {
+    "description": "Specifies the name of the @keyframes animation",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-name.asp"
+  },
+  "animation-play-state": {
+    "description": "Specifies whether the animation is running or paused",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-play-state.asp"
+  },
+  "animation-timing-function": {
+    "description": "Specifies the speed curve of an animation",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp"
+  },
+  "backface-visibility": {
+    "description": "Defines whether or not an element should be visible when not facing the screen",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp"
+  },
+  "perspective": {
+    "description": "Specifies the perspective on how 3D elements are viewed",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_perspective.asp"
+  },
+  "perspective-origin": {
+    "description": "Specifies the bottom position of 3D elements",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_perspective-origin.asp"
+  },
+  "transform": {
+    "description": "Applies a 2D or 3D transformation to an element",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transform.asp"
+  },
+  "transform-origin": {
+    "description": "Allows you to change the position on transformed elements",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transform-origin.asp"
+  },
+  "transform-style": {
+    "description": "Specifies how nested elements are rendered in 3D space",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transform-style.asp"
+  },
+  "transition": {
+    "description": "A shorthand property for setting the four transition properties",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transition.asp"
+  },
+  "transition-property": {
+    "description": "Specifies the name of the CSS property the transition effect is for",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transition-property.asp"
+  },
+  "transition-duration": {
+    "description": "Specifies how many seconds or milliseconds a transition effect takes to complete",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transition-duration.asp"
+  },
+  "transition-timing-function": {
+    "description": "Specifies the speed curve of the transition effect",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp"
+  },
+  "transition-delay": {
+    "description": "Specifies when the transition effect will start",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_transition-delay.asp"
+  },
+  "box-sizing": {
+    "description": "Tells the browser what the sizing properties (width and height) should include",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_box-sizing.asp"
+  },
+  "content": {
+    "description": "Used with the :before and :after pseudo-elements, to insert generated content",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_gen_content.asp"
+  },
+  "cursor": {
+    "description": "Specifies the type of cursor to be displayed",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_class_cursor.asp"
+  },
+  "nav-down": {
+    "description": "Specifies where to navigate when using the arrow-down navigation key",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_nav-down.asp"
+  },
+  "nav-index": {
+    "description": "Specifies the tabbing order for an element",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_nav-index.asp"
+  },
+  "nav-left": {
+    "description": "Specifies where to navigate when using the arrow-left navigation key",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_nav-left.asp"
+  },
+  "nav-right": {
+    "description": "Specifies where to navigate when using the arrow-right navigation key",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_nav-right.asp"
+  },
+  "nav-up": {
+    "description": "Specifies where to navigate when using the arrow-up navigation key",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_nav-up.asp"
+  },
+  "outline": {
+    "description": "Sets all the outline properties in one declaration",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_outline.asp"
+  },
+  "outline-color": {
+    "description": "Sets the color of an outline",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_outline-color.asp"
+  },
+  "outline-offset": {
+    "description": "Offsets an outline, and draws it beyond the border edge",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_outline-offset.asp"
+  },
+  "outline-style": {
+    "description": "Sets the style of an outline",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_outline-style.asp"
+  },
+  "outline-width": {
+    "description": "Sets the width of an outline",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_outline-width.asp"
+  },
+  "resize": {
+    "description": "Specifies whether or not an element is resizable by the user",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_resize.asp"
+  },
+  "text-overflow": {
+    "description": "Specifies what should happen when text overflows the containing element",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_text-overflow.asp"
+  },
+  "column-count": {
+    "description": "Specifies the number of columns an element should be divided into",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-count.asp"
+  },
+  "column-fill": {
+    "description": "Specifies how to fill columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-fill.asp"
+  },
+  "column-gap": {
+    "description": "Specifies the gap between the columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-gap.asp"
+  },
+  "column-rule": {
+    "description": "A shorthand property for setting all the column-rule-* properties",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-rule.asp"
+  },
+  "column-rule-color": {
+    "description": "Specifies the color of the rule between columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-rule-color.asp"
+  },
+  "column-rule-style": {
+    "description": "Specifies the style of the rule between columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-rule-style.asp"
+  },
+  "column-rule-width": {
+    "description": "Specifies the width of the rule between columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-rule-width.asp"
+  },
+  "column-span": {
+    "description": "Specifies how many columns an element should span across",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-span.asp"
+  },
+  "column-width": {
+    "description": "Specifies the width of the columns",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_column-width.asp"
+  },
+  "columns": {
+    "description": "A shorthand property for setting column-width and column-count",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_columns.asp"
+  },
+  "page-break-after": {
+    "description": "Sets the page-breaking behavior after an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_print_pageba.asp"
+  },
+  "page-break-before": {
+    "description": "Sets the page-breaking behavior before an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_print_pagebb.asp"
+  },
+  "page-break-inside": {
+    "description": "Sets the page-breaking behavior inside an element",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_print_pagebi.asp"
+  },
+  "quotes": {
+    "description": "Sets the type of quotation marks for embedded quotations",
+    "css_version": "2",
+     "link": "http://www.w3schools.com/cssref/pr_gen_quotes.asp"
+  },
+  "filter": {
+    "description": "Defines effects (e.g. blurring or color shifting) on an element before the element is displayed",
+    "css_version": "3",
+     "link": "http://www.w3schools.com/cssref/css3_pr_filter.asp"
+  }
+}

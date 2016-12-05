@@ -308,7 +308,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         if dynamic_doc_arr:
             results += dynamic_doc_arr
         else:
-            self.logger_msg += 'There is no docometation in dynamic doc\n'
+            self.logger_msg += 'There is no documentation in dynamic doc\n'
 
         for file in tooltip_files: 
             # search the parameter in json file

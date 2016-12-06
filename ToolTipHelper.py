@@ -85,6 +85,24 @@ class Utilities():
                 f.close()
         except Exception as e:
             print(e)
+            
+class OpenSublimeTooltipFilesCommand(sublime_plugin.WindowCommand):
+    def __init__(self, view):
+        self.files = []
+
+    def run(self):
+        # set root directory path
+        relative_path = os.path.join(os.path.join(sublime.packages_path(), 'ToolTip-Helper'), 'db')
+        # only file names
+        decorated_files_names = [f for f in os.listdir(relative_path) if os.path.isfile(os.path.join(relative_path, f))]
+        # full path files
+        self.files = [relative_path + '/' + f for f in decorated_files_names]
+        sublime.active_window().show_quick_panel(decorated_files_names, self.on_done)
+
+    def on_done(self, result):
+        if(result != -1):
+            file_name = self.files[result]
+            sublime.active_window().open_file(file_name)
 
 class EnterDataCommand(sublime_plugin.WindowCommand):
     """This class represent user interface to enter some data in settings file"""

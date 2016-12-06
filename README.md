@@ -10,6 +10,7 @@ Works on every language (include custom languages).
 ## Features
 
 <ul>
+  <li>Comes with documentation for HTML, CSS and Sublime API (Python).</li>
   <li>Write your own documentation above function definition.</li>
   <li>Define more than one documentation file to the same language scope.</li>
   <li>Tooltip window change his color accord to the current theme in sublime.</li>

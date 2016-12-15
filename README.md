@@ -28,7 +28,7 @@ Works on every language (include custom languages).
 
 <img src="http://s16.postimg.org/67ub24hnp/tool.png" alt="dynamic doc">
 
-## How it works?
+## How does it work?
 
 There are two ways to create documentation: <u>Built-in files</u> & <u>Dynamic doc</u>.
 

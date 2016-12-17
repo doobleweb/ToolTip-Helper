@@ -4,7 +4,7 @@ Author: Idan Avitan
 
 Credit to: Dooble
 
-This plugin shows tooltip under the cursor when on function name in sublime text 3.
+This plugin shows tooltip under the cursor or on mouse hover when on function name in sublime text 3.
 Works on every language (include custom languages).
 
 ## Features
@@ -18,6 +18,7 @@ Works on every language (include custom languages).
   <li>Control on settings like: window size, timeout, debug mode.</li>
   <li>Go to documentation definition.</li>
   <li>Go to documentation website.</li>
+  <li> CSS control from the settings file.</li>
 </ul>
 
 <b>Built-in Doc</b>
@@ -127,5 +128,4 @@ Currently, the plugin works with <code>F1</code> or command pallete. If you want
 ## Future Goals:
 <ul> 
   <li> Go To Documentation in built-in files.
-  <li> CSS control from the settings file.
 </ul>

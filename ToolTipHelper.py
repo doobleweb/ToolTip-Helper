@@ -104,6 +104,13 @@ class OpenSublimeTooltipFilesCommand(sublime_plugin.WindowCommand):
             file_name = self.files[result]
             sublime.active_window().open_file(file_name)
 
+class ToolTipHelperEventCommand(sublime_plugin.EventListener):
+    def on_hover(self, view, point, hover_zone):
+        # run hover only if its text
+        if hover_zone == sublime.HOVER_TEXT:
+            a = ToolTipHelperCommand(view, point);
+            a.run('');
+
 class EnterDataCommand(sublime_plugin.WindowCommand):
     """This class represent user interface to enter some data in settings file"""
     def __init__(self, view):
@@ -149,9 +156,11 @@ class EnterDataCommand(sublime_plugin.WindowCommand):
 class ToolTipHelperCommand(sublime_plugin.TextCommand):
     """This class represent tooltip window for showing documentation """
 
-    def __init__(self, view):
+    def __init__(self, view, selEvent=None):
         """ load settings """
         self.view = view
+        self.selEvent = selEvent;
+        self.location = None;
         self.settings = sublime.load_settings('ToolTipHelper.sublime-settings')
         self.files = self.settings.get("files")
         self.style = self.get_css_style()
@@ -181,9 +190,9 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         if CURRENT_VERSION:
             # get the cursor point
-            sel = self.view.sel()[0]
+            sel = self.selEvent if self.selEvent != None else self.view.sel()[0].begin()
             # get the current scope of cursor position
-            current_scope = self.view.scope_name(sel.begin())
+            current_scope = self.view.scope_name(sel)
             # update scope in status bar
             sublime.status_message("scope: %s" % current_scope)
             # get user selection in string
@@ -274,6 +283,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         # open popup window in the current cursor
         show_popup(self.view, 
                     search_result, 
+                    location = self.location,
                     on_navigate=self.on_navigate, 
                     max_width=self.max_width)
         self.results_arr = []
@@ -309,6 +319,7 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
     def get_user_selection(self, sel):
         """ get user selection and return her in string """
         # get the whole word from this point
+        self.location = sel;
         get_word = self.view.word(sel)
         self.word_point = get_word
         pt1 = get_word.begin()

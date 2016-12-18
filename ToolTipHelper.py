@@ -237,7 +237,8 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
                                                         sublime.MONOSPACE_FONT, 
                                                         self.last_index)
             else:
-                self.show_tooltip_popup("documentation not exist")
+                print("documentation not exist")
+                # self.show_tooltip_popup("documentation not exist")
     # <doc>
     # des: pp
     # </doc>

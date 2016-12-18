@@ -278,6 +278,9 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
 
     def show_tooltip_popup(self, search_result):
         """ open the poup with limit of time """
+        pt1 = self.word_point.begin()
+        pt2 = self.word_point.end()
+        self.view.add_regions('ToolTipHelper', [sublime.Region(pt1, pt2)], 'invalid', '' , sublime.DRAW_NO_FILL)
         if self.has_timeout:
             # set timout to 10 seconds, in the end hide the tooltip window
             sublime.set_timeout(lambda:self.hide(), self.set_timeout)
@@ -323,9 +326,9 @@ class ToolTipHelperCommand(sublime_plugin.TextCommand):
         self.location = sel;
         get_word = self.view.word(sel)
         self.word_point = get_word
-        pt1 = get_word.begin()
-        pt2 = get_word.end()
-        self.view.add_regions('ToolTipHelper', [sublime.Region(pt1, pt2)], 'invalid', '' , sublime.DRAW_NO_FILL)
+        # pt1 = get_word.begin()
+        # pt2 = get_word.end()
+        # self.view.add_regions('ToolTipHelper', [sublime.Region(pt1, pt2)], 'invalid', '' , sublime.DRAW_NO_FILL)
         # get the word in string
         get_word_str = self.view.substr(get_word)
         return get_word_str.strip()
